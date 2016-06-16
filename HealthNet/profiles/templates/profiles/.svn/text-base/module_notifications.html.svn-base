@@ -1,0 +1,10 @@
+<div id="notifications-pane" class="hide arrow-box-left">
+  <h3 class="text-center">Notifications</h3>
+  <div class="sep-solid-grey"></div>
+  <div id="notifications-box">
+    <ul>
+        <li><div class="notification-dot"></div><p>Message from Ryan Hochmuth<p></li>
+        <li><div class="notification-dot"></div><p>Rick Sanchez cancelled an appointment<p></li>
+    </ul>
+  </div>
+</div>

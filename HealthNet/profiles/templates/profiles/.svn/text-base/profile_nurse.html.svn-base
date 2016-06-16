@@ -1,0 +1,164 @@
+<!--
+  nurseprofile.html
+  ==============================================================================
+
+  This template shows a nurse's profile.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include the global CSS, JS, etc. links -->
+    {% include "includes/headlinks.html" %}
+    <link rel="stylesheet" type="text/css" href="/static/css/profiles.css"/>
+    <link rel="stylesheet" href="/static/css/messaging.css">
+    <script src="/static/js/DoctorProfileViewSwap.js"></script>
+    <script src="/static/js/ContactScripts.js"></script>
+    <script src="/static/js/BasicInfoEdit.js"></script>
+    <script src="/static/js/AppointmentScripts.js"></script>
+    <link rel="stylesheet" href="/static/SwagTimePicker/SwagTimePicker.css">
+    <script src="/static/SwagTimePicker/SwagTimePicker.js"></script>
+
+    <title>HealthNet - {{ hnuser.user.username }}</title>
+</head>
+
+<body id="profile-body">
+
+<!-- Include the global page header -->
+{% include "includes/header.html" %}
+
+<!-- Include the page sidebar -->
+{% include "includes/doctorsidebar.html" %}
+
+<!-- Notifications -->
+{% include "profiles/module_notifications.html" %}
+<!-- End Notifications -->
+
+<!-- This is where the unique content for each page goes -->
+<div class="content">
+    <div id="username-holder" username="{{ hnuser.user.username }}"></div>
+
+    <!-- Doctor Profile Content -->
+    <div class="profile-content">
+
+      <div class="row hide" id="peek-row">
+        <div class="profile-pane">
+          <div class="info-bubble center scale-0 fade-grow-in text-center">
+            <h1>You are not currently viewing another profile</h1>
+            <h2>You can search for someone using the search button on the action bar or the button below</h2>
+            <div id="peek-search-button" class="button-gradient-red"><i class="fa fa-search"></i><p>Search</p></div>
+          </div>
+        </div>
+      </div>
+
+        <div class="row" id="row-id-1">
+
+            <!-- Right Column -->
+            <div class="col-sm-4 col-sm-push-8" id="profile-right-column">
+                <!-- columns backwards for mobile/resizing purposes -->
+
+                <!-- Message JPops -->
+                {% include "messaging/messaging_jpop.html" %}
+                <!-- End Message JPops -->
+
+                <!-- Message Contacts -->
+                {% include "profiles/../../../messaging/templates/messaging/module_message_contacts.html" %}
+                <!-- End Message Contacts -->
+
+                <!-- Calendar Toolbar -->
+                {% include "profiles/module_calendar_toolbar.html" %}
+
+                <!-- Create Appointment JPop -->
+                <div class="edit-form" id="create-appointment-popup" width="50%" height="90%" style="display: none;"
+                     jpoptitle="Create Appointment" mtrigger="951">
+                    <div class="edit-form-inner">
+                        <form id="create-appointment-popup-form" class="center" action="" method="post">
+                            {% csrf_token %}
+                            <div id="create-appointment-content"></div>
+                            <div class="edit-submit">
+                                <input id="create-appointment-submit" type="submit" value="Create"
+                                       class="button-gradient-red submit-btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- End Create Appointment JPop -->
+                <!-- End Calendar Toolbar -->
+
+                <!-- Day Calendar -->
+                {% include "profiles/module_day_calendar.html" %}
+                <!-- End Day Calendar -->
+
+            </div>
+            <!-- End Right Column -->
+
+            <!-- Left Column -->
+            <div class="col-sm-8 col-sm-pull-4" id="profile-left-column">
+
+                <!-- Messages Pane -->
+                {% include "profiles/../../../messaging/templates/messaging/module_messages.html" %}
+                <!-- End Messages Pane -->
+
+                <!-- Main Calendar -->
+                {% include "profiles/module_main_calendar.html" %}
+
+                <div id="delete-appointment-info" username="" pk=""></div>
+
+                <!-- View Appointment JPop -->
+                <div class="jpop" id="view-appointment-clicker" popup="view-appointment-popup"></div>
+                <div id="view-appointment-popup" width="50%" height="90%" jpoptitle="View Appointment" mtrigger="815">
+                    <div id="view-appointment-content"></div>
+                </div>
+                <!-- End View Appointment JPop -->
+
+                <!-- Delete Appointment Confirm JPop -->
+                <div class="edit-form" id="delete-appointment-confirm-popup" width="50%" style="display: none;">
+                    <div class="edit-form-inner">
+                        <h2>Are you sure you want to cancel this appointment?</h2>
+
+                        <form class="center" action="" method="post">
+                            <div class="edit-submit">
+                                <a href="javascript:;" id="delete-appointment-yes">
+                                    <input type="submit" class="button-gradient-red" value="Yes">
+                                </a>
+                                <a style="margin-left: 10px;" href="javascript:;" id="delete-appointment-no">
+                                    <input type="submit" class="button-gradient-red" value="No">
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- End Delete Appointment Confirm JPop -->
+                <!-- End Main Calendar -->
+
+            </div>
+            <!-- End Left Column -->
+
+        </div>
+
+        <!-- View Contacts -->
+        <div id="contacts-pane">
+            {% include "profiles/module_contacts.html" %}
+        </div>
+        <!-- End View Contacts -->
+
+    </div>
+    <!-- End Profile Content -->
+
+</div>
+<!-- End content -->
+
+<!-- General Document Script -->
+<script>
+    document.getElementById('profile-body').style.overflow = "hidden";
+    setTimeout(function () {
+        document.getElementById('profile-body').style.overflow = "auto";
+    }, 600);
+</script>
+<!-- End General Document Script -->
+
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tabs section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+.tabs input.tabs-input {
+  display: none;
+}
+
+.tabs label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+.tabs label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.tabs label[for='tab1']:before {
+  content: '\f007';
+}
+
+.tabs label[for='tab2']:before {
+  content: '\f0f8';
+}
+
+.tabs label[for='tab3']:before {
+  content: '\f21e';
+}
+
+.tabs label[for='tab4']:before {
+  content: '\f095';
+}
+
+.tabs label[for='tab5']:before {
+  content: '\f0fa';
+}
+
+.tabs label[for='tab6']:before {
+  content: '\f21e';
+}
+
+.tabs label[for='tab7']:before {
+  content: '\f0fa';
+}
+
+.tabs label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+.tabs input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #D22121;
+  border-bottom: 1px solid #fff;
+}
+
+.tabs #tab1:checked ~ #basic-info-tab,
+.tabs #tab2:checked ~ #medical-info-tab,
+.tabs #tab3:checked ~ #peek-medical-info-tab,
+.tabs #tab4:checked ~ #peek-contacts-tab,
+.tabs #tab5:checked ~ #peek-prescriptions-tab,
+.tabs #tab6:checked ~ #patient-case-tab,
+.tabs #tab7:checked ~ #patient-prescription-tab {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  .tabs label {
+    font-size: 0;
+  }
+
+  .tabs label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .tabs label {
+    padding: 15px;
+  }
+}
+
+
+
+.tabs2 section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+.tabs2 input.tabs-input2 {
+  display: none;
+}
+
+.tabs2 label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+.tabs2 label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.tabs2 label[for='tab6']:before {
+  content: '\f21e';
+}
+
+.tabs2 label[for='tab7']:before {
+  content: '\f0fa';
+}
+
+.tabs2 label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+.tabs2 input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #D22121;
+  border-bottom: 1px solid #fff;
+}
+
+.tabs2 #tab6:checked ~ #patient-case-tab,
+.tabs2 #tab7:checked ~ #patient-prescriptions-tab {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  .tabs2 label {
+    font-size: 0;
+  }
+
+  .tabs2 label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .tabs2 label {
+    padding: 15px;
+  }
+}

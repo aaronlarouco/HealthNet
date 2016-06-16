@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div id="phoneNumber-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ contactForm.phoneNumber.label_tag }}</div>
+    <div class="form-field">{{ contactForm.phoneNumber }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div id="heightFeet-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ userForm.heightFeet.label_tag }}</div>
+    <div class="form-field">{{ userForm.heightFeet }}</div>
+  </div>
+  <div class="col-sm-6">
+    <div id="heightInches-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ userForm.heightInches.label_tag }}</div>
+    <div class="form-field">{{ userForm.heightInches }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div id="weight-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ userForm.weight.label_tag }}</div>
+    <div class="form-field">{{ userForm.weight }}</div>
+  </div>
+</div>
+
+<h2>Address Information</h2>
+<div class="row">
+  <div class="col-sm-8">
+    <div id="street-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ contactForm.street.label_tag }}</div>
+    <div class="form-field">{{ contactForm.street }}</div>
+  </div>
+  <div class="col-sm-4">
+    <div id="city-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ contactForm.city.label_tag }}</div>
+    <div class="form-field">{{ contactForm.city }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div id="state-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ contactForm.state.label_tag }}</div>
+    <div class="form-field">{{ contactForm.state }}</div>
+  </div>
+  <div class="col-sm-6">
+    <div id="zipcode-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ contactForm.zipcode.label_tag }}</div>
+    <div class="form-field">{{ contactForm.zipcode }}</div>
+  </div>
+</div>

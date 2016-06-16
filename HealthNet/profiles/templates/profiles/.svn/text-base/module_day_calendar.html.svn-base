@@ -1,0 +1,106 @@
+<div class="profile-pane" id="cal2-id" style="top: -4000px; position: absolute;">
+  <div class="info-bubble animate-from-bottom" id="day-cal-inner">
+    <div id="daycalendar">
+      <div id="calendar2"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function () {
+  var ar = {{json_ar|safe}};
+
+  var sy = ar[0];
+  var sm = ar[1];
+  var sd = ar[2];
+  var sh = ar[3];
+  var sn = ar[4];
+  var ey = ar[5];
+  var em = ar[6];
+  var ed = ar[7];
+  var eh = ar[8];
+  var en = ar[9];
+  var id = ar[10];
+  var title = ar[11];
+  var rsn = ar[12];
+
+  var hite = $(window).height()-160;
+  var dayHite = $(window).height()-238;
+
+  var eventArray = [];
+  for (var key in sy) {
+     var endhour = eh[key];
+     var endmin = en[key];
+     var starthour = sh[key];
+     var startmin = sn[key];
+     var event = {
+         id: id[key],
+         title: title[key],
+         description: rsn[key],
+         start: new Date(sy[key], sm[key] - 1, sd[key], starthour, startmin),
+         end: new Date(ey[key], em[key] - 1, ed[key], endhour, endmin)
+     };
+     eventArray.push(event);
+  }
+
+  $('#calendar2').fullCalendar({
+      theme: false,
+
+      header: {
+          left: 'title',
+          center: '',
+          right: 'today'
+
+      },
+
+      titleFormat: 'MMM D',
+
+      events: eventArray,
+
+      eventRender: function (event, element) {
+          element.qtip({
+              content: event.description,
+              style: {
+                  classes: 'qtip-light qtip-shadow',
+                  tip: {
+                      offset: 155
+                  }
+              }
+          });
+      },
+
+      defaultView: 'agendaDay',
+
+      height: dayHite,
+
+      eventClick: function (calEvent, jsEvent, view) {
+
+          $("#view-appointment-clicker").click();
+
+          var token = $('input[name=\"csrfmiddlewaretoken\"]');
+          $.ajax({
+              url: "/appointments/{{ hnuser.user.username }}/" + calEvent.id,
+              type: "POST",
+              data: {
+                  client_response: "",
+                  csrfmiddlewaretoken: token.val()
+              },
+              success: function (data) {
+                $('#view-appointment-content').html(data.html);
+                $('#view-appointment-content').append("<input id=\"appointmentpk\" type=\"hidden\" pk=\"" +
+                calEvent.id + "\" username=\"{{ hnuser.user.username }}\">");
+
+                setupEditAppointmentButton();
+                setupDeleteAppointmentButton();
+
+                var deleteBtn = document.getElementById('delete-appointment-button');
+                initSpecificJPop(deleteBtn);
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+
+              }
+          });
+      }
+  })
+});
+</script>

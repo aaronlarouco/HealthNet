@@ -1,0 +1,22 @@
+<div class="profile-pane hide" id="profile-messagecontacts-pane">
+    <div class="info-bubble animate-from-bottom">
+      <h1>Contacts</h1>
+      <div class="sep-solid-grey" style="width: 100%;"></div>
+        {% for contact in contacts %}
+            {% if contact.type != 'e' %}
+            <div class="row messagecontact">
+                <div id="search-result-photo">
+                    <img width="64px" height="64px" src="{{ contact.user.photo.url }}" id="profile-pic-pic">
+                </div>
+                <div id="search-result-name">
+                    <h3>{{ contact.user.get_accountType_display }}</h3>
+
+                    <h1>{{ contact.firstName }}</h1>
+                    <h1>{{ contact.lastName }}</h1>
+
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

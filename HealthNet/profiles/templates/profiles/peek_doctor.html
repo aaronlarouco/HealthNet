@@ -1,0 +1,39 @@
+<div id="peek-username" username="{{hnuser.user.username}}" account="hnuser.accountType"></div>
+<div class="col-sm-4 col-sm-push-8">
+  <!-- Profile Picture -->
+  {% include "profiles/module_staff_picture.html" %}
+  <!-- End Profile Picture -->
+</div>
+<div class="col-sm-8 col-sm-pull-4">
+  <div class="row center" id="doctor-peek-links">
+    <div class="col-sm-12 width-auto">
+      <div class="profile-pane width-auto">
+        <div class="info-bubble center scale-0 fade-grow-in width-auto" id="doctor-peek-links-bubble">
+          {% if currentUser.accountType == 'P' %}
+          <div class="profile-quick-link-button doctor-peek-button">
+            <i class="fa fa-calendar"></i>
+            <p id="staff-peek-appointment-link">Schedule Appointment</p>
+          </div>
+          {% endif %}
+          <div class="profile-quick-link-button doctor-peek-button">
+            <i class="fa fa-comment"></i>
+            <p id="staff-peek-message-link">Send Message</p>
+          </div>
+          {% if currentUser.accountType != 'P' %}
+          <div class="profile-quick-link-button doctor-peek-button">
+            <i class="fa fa-phone"></i>
+            <p id="staff-peek-contact-link" pk="{{thiscontact.pk}}">Add Contact</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="profile-pane">
+    <div class="info-bubble center scale-0 fade-grow-in">
+      <h1>Bio</h1>
+      <div class="sep-solid-grey" style="width: 100%;"></div>
+      <p>{{hnuser.bio}}</p>
+    </div>
+  </div>
+</div>

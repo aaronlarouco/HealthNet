@@ -1,0 +1,6 @@
+* {margin: 0; padding: 0;}
+.body {height: 100%; width: 100%;}
+#inline_container {height: 500px; width: 100%;}
+#toggle_menu {height: 100%; width: 20px; display: inline-block; float: left; background: lime;}
+#main_container {height: 100%; width: 65%; display: inline-block; float: left;}
+#toggle {height: 100%; width: 20px; display: inline-block; float:left; background: green;}

@@ -1,0 +1,118 @@
+/*
+
+JPop CSS
+==============================================================================
+Version: 0.81
+Author: Ryan Hochmuth
+Last Modified: 10/15/2015
+(c) 2015 Ryan Hochmuth under BSD license
+------------------------------------------------------------------------------
+A simple JavaScript popup box system useful for showing forms, messages,
+or other quick same-screen popups.
+
+NOTE: This CSS file is optional and just adds some additional styles and
+      animations.
+
+*/
+
+@keyframes jpop-fade-grow-in {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+@-webkit-keyframes jpop-fade-grow-in {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+@-moz-keyframes jpop-fade-grow-in {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+@-o-keyframes jpop-fade-grow-in {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+.jpop-fade-grow-in {
+    animation:
+        jpop-fade-grow-in .2s .2s cubic-bezier(0,.8,.32,1.07) forwards;
+}
+
+@keyframes jpop-fade-grow-out {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0); }
+}
+@-webkit-keyframes jpop-fade-grow-out {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0); }
+}
+@-moz-keyframes jpop-fade-grow-out {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0); }
+}
+@-o-keyframes jpop-fade-grow-out {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0); }
+}
+.jpop-fade-grow-out {
+    animation: jpop-fade-grow-out .2s cubic-bezier(.55,-0.04,.91,.94) forwards;
+}
+
+@keyframes jpop-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-webkit-keyframes jpop-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-moz-keyframes jpop-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@-o-keyframes jpop-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.jpop-fade-in {
+    animation:
+        jpop-fade-in .8s cubic-bezier(0,.8,.32,1.07) forwards;
+}
+
+@keyframes jpop-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-webkit-keyframes jpop-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-moz-keyframes jpop-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-o-keyframes jpop-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+.jpop-fade-out {
+    animation:
+        jpop-fade-out .5s cubic-bezier(0,.8,.32,1.07) forwards;
+}
+
+.jpop-x:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.jpop-scrollbars::-webkit-scrollbar {
+    width: 10px;
+    background: rgba(220, 220, 220, 0);
+}
+
+.jpop-scrollbars::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    -webkit-border-radius: 1ex;
+}
+
+.jpop-scrollbars::-webkit-scrollbar-corner {
+    background: rgba(220, 220, 220, 0);
+}

@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-sm-10">
+    <div class="form-label">{{ form.firstName.label_tag }}</div>
+    <div class="form-field">{{ form.firstName }}</div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-label">{{ form.middleInitial.label_tag }}</div>
+    <div class="form-field">{{ form.middleInitial }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.lastName.label_tag }}</div>
+    <div class="form-field">{{ form.lastName }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.phoneNumber.label_tag }}</div>
+    <div class="form-field">{{ form.phoneNumber }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="form-label">{{ form.street.label_tag }}</div>
+    <div class="form-field">{{ form.street }}</div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-label">{{ form.city.label_tag }}</div>
+    <div class="form-field">{{ form.city }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-label">{{ form.state.label_tag }}</div>
+    <div class="form-field">{{ form.state }}</div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-label">{{ form.zipcode.label_tag }}</div>
+    <div class="form-field">{{ form.zipcode }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.relation.label_tag }}</div>
+    <div class="form-field">{{ form.relation }}</div>
+  </div>
+</div>
+
+<script>
+$('.cancel-btn').on('click', function(e) {
+  e.preventDefault();
+  document.location.href='/profiles/{{ hnuser.user.username }}/contacts';
+});
+
+document.getElementById('edit-contact-form').onkeypress = function(e) {
+  e = window.event || e;
+
+  if (/textarea/i.test((e.target || e.srcElement).tagName)) {
+    return true;
+  }
+
+  if (checkEnter(e)) {
+
+    eventFire(document.getElementById('edit-contact-form-submit'), 'click');
+
+    return false;
+  }
+
+  return true;
+};
+</script>

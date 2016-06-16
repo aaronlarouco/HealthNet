@@ -1,0 +1,4 @@
+<option value="">None</option>
+{% for case in cases %}
+<option value="{{ case.pk }}">{{case.caseId}} - {{case.title}} - {{case.date}}</option>
+{% endfor %}

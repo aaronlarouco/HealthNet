@@ -1,0 +1,72 @@
+<!-- Sidebar -->
+<div id="sidebar" class="">
+    <div id="sidebar-header">
+        <div id="notify-btn"><i class="fa fa-bell"></i></div>
+        <div id="notify-num">2</div>
+    </div>
+    <div id="sidebar-nav-panel" class="panel panel-default">
+    </div>
+    <div id="sidebar-nav-sidebar">
+        <a href="javascript:;" title="Appointments">
+            <div class="sidebar-sidebar-button" id="calendar-btn"><i class="fa fa-calendar"></i></div>
+        </a>
+        <a href="javascript:;" title="Current Peek">
+            <div class="sidebar-sidebar-button" id="staff-peek-btn"><i class="fa fa-user"></i></div>
+        </a>
+        <a href="javascript:;" title="Search">
+            <div class="sidebar-sidebar-button jpop" popup="search-popup" id="search-btn"><i class="fa fa-search"></i>
+            </div>
+        </a>
+        <a href="javascript:;" title="Message Center">
+            <div class="sidebar-sidebar-button" id="message-btn"><i class="fa fa-comment"></i></div>
+        </a>
+        <a href="javascript:;" title="Contacts">
+            <div class="sidebar-sidebar-button" id="contact-btn"><i class="fa fa-phone"></i></div>
+        </a>
+        <a href="/logout" title="Logout">
+            <div class="sidebar-sidebar-button sidebar-logout-button" id="logout-btn"><i class="fa fa-sign-out"></i></div>
+        </a>
+    </div>
+</div>
+
+<!-- Search Popup -->
+<div id="search-popup" showdivider="false" bgcolor="rgba(0,0,0,0)" top="70px" width="80%" style="display: none;">
+  {% csrf_token %}
+  <div id="search-input-div">
+    <input type="text" id="search-input" name="text" placeholder="Search" autofocus>
+  </div>
+  <div id="search-results"></div>
+</div>
+<!-- End Search popup -->
+
+<!-- Topbar - Shown when the screen size doesn't permit the sidebar -->
+<div id="top-notify-btn"><i class="fa fa-bell"></i></div>
+<div id="top-notify-num">2</div>
+<div id="topbar-bars" onclick="topbarToggle()">
+    <div id="topbar-bar1"></div>
+    <div id="topbar-bar2"></div>
+    <div id="topbar-bar3"></div>
+</div>
+<div id="topbar">
+    <div id="topbar-nav-sidebar">
+        <a href="javascript:;" title="Appointments">
+            <div class="sidebar-sidebar-button" id="top-calendar-btn"><i class="fa fa-calendar"></i></div>
+        </a>
+        <a href="javascript:;" title="Current Peek">
+            <div class="sidebar-sidebar-button" id="top-staff-peek-btn"><i class="fa fa-user"></i></div>
+        </a>
+        <a href="javascript:;" title="Search">
+            <div class="sidebar-sidebar-button jpop" popup="search-popup" id="top-search-btn"><i class="fa fa-search"></i>
+            </div>
+        </a>
+        <a href="javascript:;" title="Message Center">
+            <div class="sidebar-sidebar-button" id="top-message-btn"><i class="fa fa-comment"></i></div>
+        </a>
+        <a href="javascript:;" title="Contacts">
+            <div class="sidebar-sidebar-button" id="top-contact-btn"><i class="fa fa-phone"></i></div>
+        </a>
+        <a href="/logout" title="Logout">
+            <div class="sidebar-sidebar-button sidebar-logout-button" id="top-logout-btn"><i class="fa fa-sign-out"></i></div>
+        </a>
+    </div>
+</div>

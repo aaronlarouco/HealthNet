@@ -1,0 +1,574 @@
+<!--
+  newpatient.html
+  ==============================================================================
+
+  This template shows the forms used for new patients.
+ -->
+
+<html>
+
+<head>
+    <!-- Include the global CSS, JS, etc. links -->
+    {% include "includes/headlinks.html" %}
+
+    <title>New Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+<div id="top"></div>
+<!-- Include the global page header -->
+{% include "includes/header.html" %}
+
+<!-- This is where the unique content for each page goes -->
+<div class="content">
+    <p class="text-center text-white" style="margin-top: 50px;">Thank you for creating your account! Before you can
+        login and use it, we first need some basic information from you.</p>
+
+    <div id="reg-progressbar-wrapper" class="bg-color-white center">
+      <div id="reg-progressbar"></div>
+      <p class="center text-center ui-progressbar-value"></p>
+    </div>
+    <div class="edit-form" id="edit-form">
+        <div class="info-bubble edit-form-inner">
+            <h1>Patient Registration</h1>
+            <div class="sep-dashed-grey"></div>
+
+            <form class="center" action="/profiles/{{ username }}" method="post" id="contact-form">
+
+                <!-- Contact Info -->
+                <h2>Personal Information</h2>
+                <div id="dateOfBirth-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                <label class="form-label" style="display: inline;" for="birthDate">Date of Birth</label>
+                <input type="text" id="datepicker" name="birthDate" required placeholder="ex. 2015-12-31" class="jval">
+
+                <div class="row">
+                  <div class="col-sm-10">
+                    <div id="firstName-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ contactForm.firstName.label_tag }}</div>
+                    <div class="form-field">{{ contactForm.firstName }}</div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div id="middleInitial-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ contactForm.middleInitial.label_tag }}</div>
+                    <div class="form-field">{{ contactForm.middleInitial }}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div id="lastName-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ contactForm.lastName.label_tag }}</div>
+                    <div class="form-field">{{ contactForm.lastName }}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div id="phoneNumber-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ contactForm.phoneNumber.label_tag }}</div>
+                    <div class="form-field">{{ contactForm.phoneNumber }}</div>
+                  </div>
+                </div>
+
+                <div class="edit-submit">
+                  <input id="contact-form-submit" type="submit" value="Next" class="button-gradient-red submit-btn">
+                </div>
+              </form>
+
+              <form class="center" action="/profiles/{{ username }}" method="post" id="address-form">
+
+                <!-- Address Info -->
+                <h2>Address Information</h2>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div id="street-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ contactForm.street.label_tag }}</div>
+                    <div class="form-field">{{ contactForm.street }}</div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div id="city-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ contactForm.city.label_tag }}</div>
+                    <div class="form-field">{{ contactForm.city }}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div id="state-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ contactForm.state.label_tag }}</div>
+                    <div class="form-field">{{ contactForm.state }}</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div id="zipcode-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ contactForm.zipcode.label_tag }}</div>
+                    <div class="form-field">{{ contactForm.zipcode }}</div>
+                  </div>
+                </div>
+
+                <div class="edit-submit">
+                  <input style="margin-right: 5%;" type="submit" id="address-form-back" class="button-gradient-red" value="Back">
+                  <input id="address-form-submit" type="submit" value="Next" class="button-gradient-red submit-btn">
+                </div>
+              </form>
+
+              <form class="center" action="/profiles/{{ username }}" method="post" id="medical-form">
+                {% csrf_token %}
+
+                <!-- Medical Info -->
+                <h2>Medical Information</h2>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div id="heightFeet-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ patientForm.heightFeet.label_tag }}</div>
+                    <div class="form-field">{{ patientForm.heightFeet }}</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div id="heightInches-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ patientForm.heightInches.label_tag }}</div>
+                    <div class="form-field">{{ patientForm.heightInches }}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div id="weight-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ patientForm.weight.label_tag }}</div>
+                    <div class="form-field">{{ patientForm.weight }}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div id="hospitalPref-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ patientForm.hospitalPref.label_tag }}</div>
+                    <select name="hospitalPref" required>
+                      {% for hospital in hospitals %}
+                      <option value="{{ hospital.pk }}">{{ hospital.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div id="insuranceCompany-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ patientForm.insuranceCompany.label_tag }}</div>
+                    <div class="form-field">{{ patientForm.insuranceCompany }}</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div id="insuranceId-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+                    <div class="form-label" style="display: inline;">{{ patientForm.insuranceId.label_tag }}</div>
+                    <div class="form-field">{{ patientForm.insuranceId }}</div>
+                  </div>
+                </div>
+
+                <div class="edit-submit">
+                  <input style="margin-right: 5%;" type="submit" id="medical-form-back" class="button-gradient-red" value="Back">
+                  <input id="medical-form-submit" type="submit" value="Register" class="button-gradient-red submit-btn"/>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>
+<!-- End content -->
+
+<script>
+// Initialize the datepicker
+$(function () {
+    $("#datepicker").datepicker({
+        yearRange: "1910:2015",
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "yy-mm-dd"
+    });
+});
+
+// Initialize the progress bar
+document.getElementById('reg-progressbar').style.width = "33%";
+</script>
+
+<script>
+// The three forms
+var contactForm = $('#contact-form');
+var addressForm = $('#address-form');
+var medicalForm = $('#medical-form');
+
+// The three submit buttons
+var contactSubmit = $('#contact-form-submit');
+var addressSubmit = $('#address-form-submit');
+var medicalSubmit = $('#medical-form-submit');
+
+// The back buttons
+var addressBack = $('#address-form-back');
+var medicalBack = $('#medical-form-back');
+
+// The form progress bar
+var progressBar = $("#progressbar");
+
+medicalForm.addClass('hide');
+addressForm.addClass('hide');
+
+// From contact to address
+contactSubmit.on('click', function (e) {
+
+  if (contactForm[0].checkValidity() == false ) {
+  }
+  else {
+    e.preventDefault();
+
+    if ($(window).width() <= 676)
+      switchForm(contactForm, addressForm, "450px");
+    else
+      switchForm(contactForm, addressForm, "300px");
+
+    window.location.replace('#top');
+
+    $('#reg-progressbar').animate({
+        width: "66%"
+    }, 250, function () {
+    });
+  }
+});
+
+// From address to medical
+addressSubmit.on('click', function (e) {
+
+    if (addressForm[0].checkValidity() == false ) {
+    }
+    else {
+      e.preventDefault();
+      switchForm(addressForm, medicalForm, "500px");
+
+      if ($(window).width() <= 676)
+        switchForm(addressForm, medicalForm, "650px");
+      else
+        switchForm(addressForm, medicalForm, "500px");
+
+      window.location.replace('#top');
+
+      $('#reg-progressbar').animate({
+          width: "100%"
+      }, 250, function () {
+      });
+    }
+});
+
+medicalSubmit.on('click', function (e) {
+
+  if (medicalForm[0].checkValidity() == false ) {
+  }
+  else {
+
+    var appendToForm = "medical-form";
+    var dataForm = "address-form";
+
+    $('#' + dataForm + ' :input').not(':submit').not('textarea').not('select').each(function() { $(this).attr('value', $(this).val()); });
+    $('#' + dataForm + ' textarea').each(function() { $(this).text($(this).val()); });
+    $('#' + dataForm + ' select').each(function() { $('option[value!="' + $(this).val() + '"]', this).remove(); $('option[value="' + $(this).val() + '"]', this).attr('selected', 'selected'); });
+    $('#' + dataForm + ' :input').not(':submit').clone().hide().attr('isacopy','y').appendTo('#' + appendToForm);
+
+    dataForm = "contact-form";
+
+    $('#' + dataForm + ' :input').not(':submit').not('textarea').not('select').each(function() { $(this).attr('value', $(this).val()); });
+    $('#' + dataForm + ' textarea').each(function() { $(this).text($(this).val()); });
+    $('#' + dataForm + ' select').each(function() { $('option[value!="' + $(this).val() + '"]', this).remove(); $('option[value="' + $(this).val() + '"]', this).attr('selected', 'selected'); });
+    $('#' + dataForm + ' :input').not(':submit').clone().hide().attr('isacopy','y').appendTo('#' + appendToForm);
+  }
+});
+
+// From address to contact
+addressBack.on('click', function (e) {
+
+    e.preventDefault();
+
+    switchForm(addressForm, contactForm, "500px");
+
+    window.location.replace('#top');
+
+    $('#reg-progressbar').animate({
+        width: "33%"
+    }, 250, function () {
+    });
+});
+
+// From medical to address
+medicalBack.on('click', function (e) {
+
+  e.preventDefault();
+
+  switchForm(medicalForm, addressForm, "300px");
+
+  window.location.replace('#top');
+
+  $('#reg-progressbar').animate({
+      width: "66%"
+  }, 250, function () {
+  });
+});
+
+$('#firstName-field').keyup(function() {
+  if ($('#firstName-field').hasClass('valid')) {
+    alert("valid");
+  }
+});
+
+document.getElementById('address-form').onkeypress = function(e) {
+  e = window.event || e;
+
+  if (/textarea/i.test((e.target || e.srcElement).tagName)) {
+    return true;
+  }
+
+  if (checkEnter(e)) {
+/*
+    switchForm(addressForm, medicalForm, "500px");
+
+    if ($(window).width() <= 676)
+      switchForm(addressForm, medicalForm, "650px");
+    else
+      switchForm(addressForm, medicalForm, "500px");
+
+    window.location.replace('#top');
+
+    $('#reg-progressbar').animate({
+        width: "100%"
+    }, 250, function () {
+    });
+	*/
+
+    return false;
+  }
+
+  return true;
+};
+
+document.getElementById('medical-form').onkeypress = function(e) {
+  e = window.event || e;
+
+  if (/textarea/i.test((e.target || e.srcElement).tagName)) {
+    return true;
+  }
+
+  if (checkEnter(e)) {
+
+    //eventFire(document.getElementById('medical-form-submit'), 'click');
+
+    return false;
+  }
+
+  return true;
+};
+</script>
+
+<!-- <script>
+function inputCheckIcon(input, validIndicator) {
+  if(input.is(':valid')) {
+    validIndicator.animate({
+        opacity: 0
+    }, 50, function () {
+    });
+    validIndicator.addClass('scale-0');
+
+    validIndicator.removeClass("fade-grow-in").removeClass("fade-grow-out");
+    validIndicator.removeClass('hide').addClass('fade-grow-in');
+  }
+  else {
+    validIndicator.removeClass("fade-grow-in").removeClass("fade-grow-out");
+    validIndicator.addClass('fade-grow-out');
+    validIndicator.animate({
+        opacity: 1
+    }, 300, function () {
+      validIndicator.addClass('hide');
+    });
+  }
+}
+
+var dateOfBirth = $('#datepicker');
+var dateOfBirthCheck = $('#dateOfBirth-check');
+dateOfBirthCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+dateOfBirth.on('focusout', function(e) {
+  if(dateOfBirth.is(':valid')) {
+    dateOfBirthCheck.animate({
+        opacity: 0
+    }, 50, function () {
+    });
+    dateOfBirthCheck.addClass('scale-0');
+
+    dateOfBirthCheck.removeClass("fade-grow-in").removeClass("fade-grow-out");
+    dateOfBirthCheck.removeClass('hide').addClass('fade-grow-in');
+  }
+  else {
+    dateOfBirthCheck.removeClass("fade-grow-in").removeClass("fade-grow-out");
+    dateOfBirthCheck.addClass('fade-grow-out');
+    dateOfBirthCheck.animate({
+        opacity: 1
+    }, 300, function () {
+      dateOfBirthCheck.addClass('hide');
+    });
+  }
+});
+dateOfBirth.change(function() {
+  if(dateOfBirth.is(':valid')) {
+    dateOfBirthCheck.animate({
+        opacity: 0
+    }, 50, function () {
+    });
+    dateOfBirthCheck.addClass('scale-0');
+
+    dateOfBirthCheck.removeClass("fade-grow-in").removeClass("fade-grow-out");
+    dateOfBirthCheck.removeClass('hide').addClass('fade-grow-in');
+  }
+  else {
+    dateOfBirthCheck.removeClass("fade-grow-in").removeClass("fade-grow-out");
+    dateOfBirthCheck.addClass('fade-grow-out');
+    dateOfBirthCheck.animate({
+        opacity: 1
+    }, 300, function () {
+      dateOfBirthCheck.addClass('hide');
+    });
+  }
+});
+
+var firstName = $('#firstName-field');
+var firstNameCheck = $('#firstName-check');
+firstNameCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+firstName.keyup(function() {
+  inputCheckIcon(firstName, firstNameCheck);
+});
+
+var middleInitial = $('#middleInitial-field');
+var middleInitialCheck = $('#middleInitial-check');
+middleInitialCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+middleInitial.keyup(function() {
+  inputCheckIcon(middleInitial, middleInitialCheck);
+});
+
+var lastName = $('#lastName-field');
+var lastNameCheck = $('#lastName-check');
+lastNameCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+lastName.keyup(function() {
+  inputCheckIcon(lastName, lastNameCheck);
+});
+
+var phoneNumber = $('#phoneNumber-field');
+var phoneNumberCheck = $('#phoneNumber-check');
+phoneNumberCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+phoneNumber.keyup(function() {
+  inputCheckIcon(phoneNumber, phoneNumberCheck);
+});
+
+
+var street = $('#street-field');
+var streetCheck = $('#street-check');
+streetCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+street.keyup(function() {
+  inputCheckIcon(street, streetCheck);
+});
+
+var city = $('#city-field');
+var cityCheck = $('#city-check');
+cityCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+city.keyup(function() {
+  inputCheckIcon(city, cityCheck);
+});
+
+var state = $('#state-field');
+var stateCheck = $('#state-check');
+stateCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+state.keyup(function() {
+  inputCheckIcon(state, stateCheck);
+});
+
+var zipcode = $('#zipcode-field');
+var zipcodeCheck = $('#zipcode-check');
+zipcodeCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+zipcode.keyup(function() {
+  inputCheckIcon(zipcode, zipcodeCheck);
+});
+
+var heightFeet = $('#heightFeet-field');
+var heightFeetCheck = $('#heightFeet-check');
+heightFeetCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+heightFeet.keyup(function() {
+  inputCheckIcon(heightFeet, heightFeetCheck);
+});
+
+var heightInches = $('#heightInches-field');
+var heightInchesCheck = $('#heightInches-check');
+heightInchesCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+heightInches.keyup(function() {
+  inputCheckIcon(heightInches, heightInchesCheck);
+});
+
+var weight = $('#weight-field');
+var weightCheck = $('#weight-check');
+weightCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+weight.keyup(function() {
+  inputCheckIcon(weight, weightCheck);
+});
+
+var hospitalPref = $('#hospitalPref-field');
+var hospitalPrefCheck = $('#hospitalPref-check');
+hospitalPrefCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+hospitalPref.keyup(function() {
+  inputCheckIcon(hospitalPref, hospitalPrefCheck);
+});
+
+var insuranceCompany = $('#insuranceCompany-field');
+var insuranceCompanyCheck = $('#insuranceCompany-check');
+insuranceCompanyCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+insuranceCompany.keyup(function() {
+  inputCheckIcon(insuranceCompany, insuranceCompanyCheck);
+});
+
+var insuranceId = $('#insuranceId-field');
+var insuranceIdCheck = $('#insuranceId-check');
+insuranceIdCheck.animate({
+    opacity: 0
+}, 50, function () {
+});
+insuranceId.keyup(function() {
+  inputCheckIcon(insuranceId, insuranceIdCheck);
+});
+</script> -->
+
+</body>
+</html>

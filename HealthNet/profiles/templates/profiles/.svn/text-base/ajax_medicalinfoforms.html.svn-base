@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div id="hospitalPref-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ userForm.hospitalPref.label_tag }}</div>
+    <select name="hospitalPref" required id="hospitalPref-field">
+      {% for hospital in hospitals %}
+      {% if hospital.pk == hnuser.hospitalPref.pk %}
+      <option selected value="{{ hospital.pk }}">{{ hospital.name }}</option>
+      {% else %}
+      <option value="{{ hospital.pk }}">{{ hospital.name }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div id="insuranceCompany-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ userForm.insuranceCompany.label_tag }}</div>
+    <div class="form-field">{{ userForm.insuranceCompany }}</div>
+  </div>
+  <div class="col-sm-6">
+    <div id="insuranceId-check" style="color: #249117; margin-right: 5px; display: inline;" class="hide fa fa-check"></div>
+    <div class="form-label" style="display: inline;">{{ userForm.insuranceId.label_tag }}</div>
+    <div class="form-field">{{ userForm.insuranceId }}</div>
+  </div>
+</div>

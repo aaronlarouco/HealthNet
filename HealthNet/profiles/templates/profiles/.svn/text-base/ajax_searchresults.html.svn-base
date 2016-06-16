@@ -1,0 +1,26 @@
+<ul id="search-results-ul">
+{% for result in results %}
+<li class="search-result-link" pk="{{ result.pk }}">
+<div class="search-result center" pk="{{ result.pk }}">
+  <a href="javascript:;" pk="{{ result.pk }}">
+  <div class="row" pk="{{ result.pk }}">
+    <div id="search-result-photo" pk="{{ result.pk }}">
+      <img width="64px" height="64px" src="{{ result.user.photo.url }}" id="profile-pic-pic" pk="{{ result.pk }}">
+    </div>
+    <div id="search-result-name" pk="{{ result.pk }}">
+      <h1 pk="{{ result.pk }}">
+        {% if result.user.accountType == 'D' %}
+        Dr. 
+        {% endif %}
+        {{ result.firstName }}
+        {% if result.middleInitial %}{{ result.middleInitial }}.{% endif %}
+        {{ result.lastName }}
+      </h1>
+      <h3 pk="{{ result.pk }}">{{ result.user.get_accountType_display }}</h3>
+    </div>
+  </div>
+  </a>
+</div>
+</li>
+{% endfor %}
+</ul>

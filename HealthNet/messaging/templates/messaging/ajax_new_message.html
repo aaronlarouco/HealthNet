@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-12">
+    <label class="form-label" for="receiver">To:</label>
+      <select name="receiver" required>
+      <option value="">None</option>
+      {% for u in people %}
+      <option value="{{ u.pk }}">{% if u.user.accountType == 'D' %}Dr. {% endif %}{{ u.firstName }} {{ u.lastName }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.subject.label_tag }}</div>
+    <div class="form-field">{{ form.subject }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.body.label_tag }}</div>
+    <div class="form-field">{{ form.body }}</div>
+  </div>
+</div>

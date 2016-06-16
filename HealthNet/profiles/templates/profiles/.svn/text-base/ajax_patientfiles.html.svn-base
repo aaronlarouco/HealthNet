@@ -1,0 +1,5 @@
+<ul>
+  {% for file in files %}
+  <a href="/profiles/patient-files/{{file.pk}}"><li>{{file.name}}</li></a>
+  {% endfor %}
+</ul>

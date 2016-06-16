@@ -1,0 +1,56 @@
+<!--
+  uploadpicture.html
+  ==============================================================================
+
+  This template shows the form used to upload a user's profile picture.
+ -->
+
+<html>
+
+<head>
+    <!-- Include the global CSS, JS, etc. links -->
+    {% include "includes/headlinks.html" %}
+
+    <title>Upload Profile Pictire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<!-- Include the global page header -->
+{% include "includes/header.html" %}
+
+<!-- Include the page sidebar -->
+{% include "includes/sidebar.html" %}
+
+<!-- This is where the unique content for each page goes -->
+<div class="content">
+    <div class="edit-form" id="edit-form">
+        <div class="info-bubble edit-form-inner">
+            <h1>Upload Profile Picture</h1>
+            <div class="sep-dashed-grey"></div>
+            <form action="/profiles/{{ hnuser.user.username }}/uploadpicture" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <br>
+              {{ form.image }}
+              <div class="edit-submit">
+                <a href="/profiles/{{ username }}">
+                  <input type="submit" class="button-gradient-red cancel-btn" value="Cancel">
+                </a>
+                <input style="margin-left: 10px;" class="button-gradient-red" type="submit" value="Upload"/>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+$('.cancel-btn').on('click', function(e) {
+  e.preventDefault();
+  document.location.href='/profiles/{{ hnuser.user.username }}';
+});
+</script>
+<!-- End content -->
+</body>
+
+</html>

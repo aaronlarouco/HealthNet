@@ -1,0 +1,24 @@
+<div class="profile-pane hide" id="profile-messages-pane">
+    <div class="info-bubble animate-from-bottom">
+        <h1 id="message-inbox-h1">Inbox</h1>
+        <a href="javascript:;" id="new-message-button" username="{{ hnuser.user.username }}"
+        class="jpop center" popup="new-message-popup">
+          <div class="profile-quick-link-button" id="new-message-btn">
+            <i class="fa fa-comment"></i><p>Compose Message</p>
+          </div>
+        </a>
+        <div class="sep-solid-grey" style="width: 100%;"></div>
+        <ul id="messages-inbox">
+
+            {% for message in received_messages %}
+                <li class="message-view-link jpop center" pk="{{ message.pk }}" popup="view-message-popup">
+                    <a href="javascript:;" pk="{{ message.pk }}">
+                        <div class="row message-view" pk="{{ message.pk }}">
+                            {% include "messaging/message_list_item.html" %}
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

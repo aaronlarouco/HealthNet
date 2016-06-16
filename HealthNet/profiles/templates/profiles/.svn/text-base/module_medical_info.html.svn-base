@@ -1,0 +1,31 @@
+<div class="profile-pane hide" id="profile-medical-pane">
+  <div class="info-bubble animate-from-bottom">
+    <div class="tabs2">
+      <input class="tabs-input2" id="tab6" type="radio" name="tabs2" checked>
+      <label for="tab6">Medical Cases</label>
+
+      <input class="tabs-input2" id="tab7" type="radio" name="tabs2">
+      <label for="tab7">Prescriptions</label>
+
+      <section id="patient-case-tab">
+        <div id="patient-cases">
+          <ul>
+            {% for case in cases %}
+            <li>{{case.caseId}} {{case.title}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+
+      <section id="patient-prescriptions-tab">
+        <div id="patient-prescriptions">
+          <ul>
+            {% for p in prescriptions %}
+            <li>{{p.drug.name}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<!-- New Message JPop -->
+<div class="edit-form" id="new-message-popup" width="50%" style="display: none;"
+     jpoptitle="New Message" mtrigger="951">
+    <div class="edit-form-inner">
+        <form id="new-message-popup-form" class="center" action="" method="post">
+            {% csrf_token %}
+            <div id="new-message-content"></div>
+            <div class="edit-submit">
+                <input id="message-send" type="submit" value="Send"
+                       class="button-gradient-red submit-btn">
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End New Message JPop -->
+
+<!-- Message JPop -->
+<div class="edit-form" id="view-message-popup" width="50%" style="display: none;"
+     jpoptitle="View Message" mtrigger="951">
+    <div class="edit-form-inner">
+        <form id="view-message-popup-form" class="center" action="" method="post">
+            {% csrf_token %}
+            <div id="view-message-content"></div>
+            <div class="edit-submit">
+                <input id="message-reply" type="submit" value="Reply"
+                       class="button-gradient-red submit-btn">
+                <input id="message-send-reply" type="submit" value="Send Reply"
+                       class="button-gradient-red submit-btn hide">
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End Message JPop -->

@@ -1,0 +1,920 @@
+/*
+=============================================================== General Styles
+*/
+
+#profile-body {
+    overflow: hidden;
+}
+
+.profile-content {
+    z-index: 4;
+    margin-left: 8%;
+    margin-right: 8%;
+    width: 88%;
+    height: 100%;
+}
+
+/*
+========================================================== Profile Pane Styles
+*/
+
+.profile-pane {
+  width: 100%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 1436px) {
+  #basic-info-pane {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1435px) {
+  #basic-info-pane {
+    width: 100%;
+  }
+}
+
+/*
+======================================================== Profile Picture Styles
+*/
+
+@media screen and (min-width: 1331px) {
+  #profile-picture {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1330px) {
+  #profile-picture {
+    width: 100%;
+  }
+}
+
+#profile-picture h1 {
+    font-size: 28px;
+    background-color: #e6e6e6;
+    padding: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
+#profile-pic-edit {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#profile-pic-area {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+#profile-pic-overlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+#profile-pic-edit-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.60);
+    text-align: center;
+}
+
+#profile-pic-edit-icon {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(200, 200, 200, 0.70);
+    text-align: center;
+    padding: 20px;
+    border-radius: 32px;
+}
+
+#profile-pic-edit-icon:hover {
+    cursor: pointer;
+    cursor: hand;
+}
+
+#profile-pic-edit-icon i {
+    font-size: 24px;
+    color: #000000;
+}
+
+#profile-pic-edit-icon p {
+    position: absolute;
+    text-align: center;
+    font-size: 24px;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%);
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#profile-pic-pic {
+    max-width: 100%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+/*
+============================================================ Quick Links Styles
+*/
+
+@media screen and (max-width: 767px) {
+  #profile-quick-links {
+    display: none;
+  }
+}
+
+#profile-quick-links {
+  width: 112px;
+  margin: 30px 0 0 0;
+}
+
+#profile-quick-links-inner {
+  padding: 5px;
+}
+
+.profile-quick-link-button {
+  height: 38px;
+  display: inline-block;
+  padding: 9px;
+  border-radius: 5px;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  color: #000000;
+  background-color: #d5d5d5;
+  border-bottom: 2px solid #bfbfbf;
+  border-right: 1px solid #bfbfbf;
+
+  transition-property: background-color, color;
+  transition-duration: .4s, .4s;
+}
+
+.profile-quick-link-button:hover {
+  cursor: pointer;
+  cursor: hand;
+  background-color: #D22121;
+  color: #ffffff;
+
+  transition-property: background-color, color;
+  transition-duration: .3s, .3s;
+}
+
+.profile-quick-link-button:hover i {
+  color: #ffffff;
+
+  transition-property: color;
+  transition-duration: .3s;
+}
+
+.profile-quick-link-button:hover p {
+  color: #ffffff;
+
+  transition-property: color;
+  transition-duration: .3s;
+}
+
+.profile-quick-link-button i {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.profile-quick-link-button p {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#msg-tools {
+    width: 235px;
+}
+
+#cal-tools {
+  width: 248px;
+}
+
+#side-quick-links {
+  width: 60px;
+}
+
+.side-quick-links-inner {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+============================================================ Basic Info Styles
+*/
+
+.profile-address-spacing {
+    position: relative;
+    height: 40px;
+    background-color: #e6e6e6;
+}
+
+.address-field-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background-color: #D22121;
+    color: #ffffff;
+    padding: 11px;
+    margin: 0;
+}
+
+.profile-field-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background-color: #D22121;
+    color: #ffffff;
+    padding: 11px;
+    margin: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.profile-info {
+    font-size: 18px;
+    height: 40px;
+    display: inline;
+    margin-left: 10px;
+}
+
+.profile-info-spacing {
+    position: relative;
+    height: 40px;
+    background-color: #e6e6e6;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#basic-info-content h3 {
+  color: #777777;
+  font-size: 18px;
+  margin: 0px;
+  margin-bottom: 2px;
+  padding: 0px;
+}
+
+#medical-info-content h3 {
+  color: #777777;
+  font-size: 18px;
+  margin: 0px;
+  margin-bottom: 2px;
+  padding: 0px;
+}
+
+@media screen and (max-width: 767px) {
+  #basic-info-content h3 {
+    display: none;
+  }
+
+  #medical-info-content h3 {
+    display: none;
+  }
+}
+
+/*#profile-info-pane {
+  height: 90%;
+}
+
+#profile-info-pane .info-bubble {
+  height: 100%;
+}*/
+
+/*
+======================================================== Profile Contact Styles
+*/
+#contacts-content {
+  height: 100%;
+  padding-top: 8%;
+}
+
+/*
+=========================================================== Profile Edit Styles
+*/
+.profile-edit-button {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 80px;
+  height: 25px;
+  padding-bottom: 2.5px;
+
+  border-radius: 5px;
+  background-color: #c9c6c6;
+  border-bottom: 2px solid #908f8f;
+  border-right: 1px solid #908f8f;
+
+  /*opacity: 0;*/
+
+  transition-property: opacity;
+  transition-duration: .3s;
+}
+
+.profile-edit-button i {
+  width: 26px;
+  height: 25px;
+  padding-top: 2.5px;
+  padding-left: 5px;
+  float: left;
+
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom: 2px solid #a81919;
+  background-color: #D22121;
+  color: #efefef;
+  font-size: 18px;
+}
+
+.profile-edit-button p {
+  width: 52px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  float: left;
+
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#basic-info-tab:hover .profile-edit-button {
+  cursor: hand;
+  cursor: pointer;
+
+  opacity: 1;
+
+  transition-property: opacity;
+  transition-duration: .3s;
+}
+
+#medical-info-tab:hover .profile-edit-button {
+  cursor: hand;
+  cursor: pointer;
+
+  opacity: 1;
+
+  transition-property: opacity;
+  transition-duration: .3s;
+}
+
+#basic-info-edit, #medical-info-edit,
+#add-contact-popup, #edit-contact-popup,
+#view-appointment-container, #create-appointment-popup,
+#new-message-popup, #view-message-popup {
+  width: 90%;
+}
+
+#edit-appointment-content {
+  width: 100%;
+}
+
+#edit-appointment-button:hover {
+  text-decoration: none;
+}
+
+/*
+========================================================== Notifications Styles
+*/
+
+#notifications-pane {
+  position: absolute;
+  top: 95;
+  left: 90px;
+  height: 300px;
+  width: 400px;
+
+  background-color: #ffffff;
+  z-index: 103;
+}
+
+#notifications-pane h3 {
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+#notifications-box {
+  padding: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#notifications-pane ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#notifications-pane li {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 2px;
+  padding: 10px;
+  padding-left: 10px;
+  background-color: #eeeded;
+  border-bottom: 2px solid #D5D4D4;
+  border-right: 1px solid #D5D4D4;
+  border-radius: 5px;
+
+  transition-property: background-color;
+  transition-duration: .2s;
+}
+
+#notifications-pane li:hover {
+  cursor: pointer;
+  cursor: hand;
+  background-color: #b82424;
+
+  transition-property: background-color;
+  transition-duration: .2s;
+}
+
+#notifications-pane p {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+#notifications-pane li:hover p {
+  color: #ffffff;
+
+  transition-property: color;
+  transition-duration: .2s;
+}
+
+.notification-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 15px;
+
+  background-color: #D22121;
+  border-radius: 50%;
+
+  transition-property: background-color;
+  transition-duration: .2s;
+}
+
+li:hover .notification-dot {
+  background-color: #ffffff;
+
+  transition-property: background-color;
+  transition-duration: .2s;
+}
+
+#notifications-pane::-webkit-scrollbar {
+    width: 10px;
+    background: rgba(220, 220, 220, 0);
+}
+
+#notifications-pane::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    -webkit-border-radius: 1ex;
+}
+
+#notifications-pane::-webkit-scrollbar-corner {
+    background: rgba(220, 220, 220, 0);
+}
+
+/*
+========================================================== Peek Styles
+*/
+#peek-search-button {
+  width: 150px;
+  height: 40px;
+  padding: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#peek-search-button:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+#peek-search-button i {
+  display: inline-block;
+  height: 40px;
+  font-size: 20px;
+  line-height: 20px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+#peek-search-button p {
+  display: inline-block;
+  height: 40px;
+  font-size: 20px;
+  line-height: 20px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#patient-peek-header {
+  width: 95%;
+  padding: 5px;
+}
+
+#patient-peek-header h2 {
+  margin: 0;
+}
+
+#doctor-peek-links {
+  width: auto;
+}
+
+#doctor-peek-links-bubble {
+  padding: 5px;
+}
+
+.doctor-peek-button {
+  margin: 0;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 593px) {
+  .doctor-peek-button p {
+    display: none;
+  }
+  .doctor-peek-button i {
+    margin-right: 0;
+  }
+}
+
+#patient-files {
+
+}
+
+#patient-files ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#patient-files a {
+  text-decoration: none;
+}
+
+#patient-files a:hover {
+  text-decoration: none;
+}
+
+#patient-files a:visited {
+  text-decoration: none;
+}
+
+#patient-files li {
+  margin: 0;
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+
+  color: #000000;
+  background-color: #EEEDED;
+  border-bottom: 2px solid #D5D4D4;
+  border-right: 1px solid #D5D4D4;
+  border-radius: 3px;
+
+  transition-property: background-color, color;
+  transition-duration: .2s, .2s;
+}
+
+#patient-files li:hover {
+  cursor: hand;
+  cursor: pointer;
+  background-color: #df474b;
+  color: #ffffff;
+
+  transition-property: background-color, color;
+  transition-duration: .2s, .2s;
+}
+
+.case-files ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.case-files a {
+  text-decoration: none;
+}
+
+.case-files a:hover {
+  text-decoration: none;
+}
+
+.case-files a:visited {
+  text-decoration: none;
+}
+
+.case-files li {
+  margin: 0;
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+
+  color: #000000;
+  background-color: #D5D4D4;
+  border-radius: 3px;
+
+  transition-property: background-color, color;
+  transition-duration: .2s, .2s;
+}
+
+.case-files li:hover {
+  cursor: hand;
+  cursor: pointer;
+}
+
+#patient-cases ul {
+  list-style: none;
+  margin:0;
+  padding: 0;
+}
+
+.case-li input[type="checkbox"] {
+  position: absolute;
+  top: -2000px;
+}
+
+.case-li {
+  margin-bottom: 5px;
+}
+
+.case-li label {
+  width: 100%;
+  height: 60px;
+  text-align: left;
+
+  background-color: #EEECEC;
+  border-bottom: 2px solid #d6d4d4;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  transition-property: background-color, color;
+  transition-duration: .2s, .2s;
+}
+
+.case-li label:hover {
+  background-color: #df474b;
+  color: #ffffff;
+
+  transition-property: background-color, color;
+  transition-duration: .2s, .2s;
+}
+
+.case-li label p {
+  color: #222222;
+
+  transition-property: color;
+  transition-duration: .2s;
+}
+
+.case-li label:hover p {
+  color: #ffffff;
+
+  transition-property: color;
+  transition-duration: .2s;
+}
+
+.case-li label p {
+  display: inline-block;
+}
+
+div.case-body {
+  display: none;
+
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+
+  background-color: #EEECEC;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.case-li input[type="checkbox"]:checked + div.case-body {
+  display: block;
+}
+
+.case-body p {
+  color: #000000;
+}
+
+.case-body p span {
+  color: #3d3d3d;
+}
+
+p.case-ongoing {
+  width: 77px;
+  height: 35px;
+  padding: 5px;
+  background-color: #3c904c;
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+p.case-closed {
+  width: 77px;
+  height: 35px;
+  padding: 5px;
+  background-color: #c63333;
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+#patient-prescriptions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#patient-prescriptions a {
+  text-decoration: none;
+}
+
+#patient-prescriptions a:hover {
+  text-decoration: none;
+}
+
+#patient-prescriptions a:visited {
+  text-decoration: none;
+}
+
+#patient-prescriptions li {
+  margin: 0;
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+
+  font-size: 18px;
+  font-weight: normal;
+  text-decoration: none;
+
+  color: #000000;
+  background-color: #EEEDED;
+  border-bottom: 2px solid #D5D4D4;
+  border-right: 1px solid #D5D4D4;
+  border-radius: 3px;
+
+  transition-property: background-color, color;
+  transition-duration: .2s, .2s;
+}
+
+#patient-prescriptions li p span {
+  color: #3d3d3d;
+  font-weight: bold;
+}
+
+#patient-prescriptions li:hover {
+  cursor: hand;
+  cursor: pointer;
+}
+
+.case-prescriptions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.case-prescriptions a {
+  text-decoration: none;
+}
+
+.case-prescriptions a:hover {
+  text-decoration: none;
+}
+
+.case-prescriptions a:visited {
+  text-decoration: none;
+}
+
+.case-prescriptions li {
+  margin: 0;
+  padding: 5px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+
+  font-size: 18px;
+  font-weight: normal;
+  text-decoration: none;
+
+  color: #000000;
+  background-color: #D5D4D4;
+  border-radius: 3px;
+
+  transition-property: background-color, color;
+  transition-duration: .2s, .2s;
+}
+
+.case-prescriptions li:hover {
+  cursor: hand;
+  cursor: pointer;
+}
+
+#new-case-button {
+  width: 120px;
+  height: 35px;
+  padding: 5px;
+  background-color: #3c904c;
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+#new-case-button:hover {
+  cursor: hand;
+  cursor: pointer;
+  background-color: #47ac5a;
+}
+
+#new-case-button i {
+  color: #ffffff;
+  margin-right: 5px;
+  padding-left: 7px;
+}
+
+#new-case-popup {
+  width: 90%;
+}
+
+p.save-notes-button {
+  width: 100px;
+  height: 35px;
+  padding: 5px;
+  background-color: #3c904c;
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+p.save-notes-button:hover {
+  cursor: hand;
+  cursor: pointer;
+  background-color: #47ac5a;
+}
+
+p.save-notes-disabled {
+  cursor: default;
+  background-color: #989898;
+}
+
+p.save-notes-disabled:hover {
+  cursor: default;
+  background-color: #989898;
+}

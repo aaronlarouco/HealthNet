@@ -1,0 +1,22 @@
+<div id="quick-links">
+  <header id="quick-links-header">
+    <div id="quicklinks-bars" class="" onclick="qlToggle()">
+      <div id="bar1"></div>
+      <div id="bar2"></div>
+      <div id="bar3"></div>
+    </div>
+  </header>
+  <div id="quick-links-wedge" class="hide">
+    &#9650;
+  </div>
+  <div id="quick-links-bar" class="">
+    <a href="javascript:;" id="home-btn"><div class="quick-link-button"><div class="fa fa-home"></div></div></a>
+    <a href="javascript:;" id="cal-btn"><div class="quick-link-button"><div class="fa fa-calendar"></div></div></a>
+  </div>
+</div>
+
+<script>
+$(document).ready(function () {
+  qlToggle();
+});
+</script>

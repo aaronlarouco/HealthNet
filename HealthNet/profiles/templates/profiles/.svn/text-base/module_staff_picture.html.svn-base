@@ -1,0 +1,17 @@
+<div class="profile-pane" id="profile-picture">
+  <div class="info-bubble animate-from-bottom">
+    <div id="profile-pic-area">
+      <div id="profile-pic-pic-wrapper">
+        <img src="{{ hnuser.photo.url }}" id="profile-pic-pic">
+      </div>
+    </div>
+    <h1 class="text-center">
+      {% if thiscontact.user.accountType == 'D' %}
+      Dr.
+      {% endif %}
+      {{ thiscontact.firstName }}
+      {% if thiscontact.middleInitial %}{{ thiscontact.middleInitial }}.{% endif %}
+      {{ thiscontact.lastName }}
+    </h1>
+  </div>
+</div>

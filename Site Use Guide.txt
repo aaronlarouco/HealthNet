@@ -1,0 +1,20 @@
+Welcome to HealthNet!
+
+This is a basic guide on the current use of our site.
+
+Patient Registration:
+1.) The first screen shown is the login screen.  Here you can login if you have an account.
+2.) At first you won't have an account so click the register link at the bottom of the login box.
+3.) Now enter your desired login credentials.  When finished, click the Register button.
+4.) Now you should see the patient information forms.  Go through the forms and enter your information.
+5.) After you've finished registration and have entered all of your information, you will be directed
+	to the profile view.  Here you can see all of your information.
+6.) From here you can use the sidebar to navigate to other areas of the site.
+
+Checking the Site Logs:
+For now the only way to access the logs is by manipulating the URL directly, this will be changed in the future.
+1.) Append '/log' to the site base URL (ex. 127.0.0.1:8000/log)
+2.) That will show a form to make log queries.  Fill in one or more fields to search for log events that match.
+	NOTE: To view all log events with no filtering, simply click the submit button with no entered queries.
+
+NOTE: This walk-through is very basic and will be expanded upon as development continues.

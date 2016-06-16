@@ -1,0 +1,46 @@
+<!--
+  adminprofile.html
+  ==============================================================================
+
+  This template shows a admin's profile.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include the global CSS, JS, etc. links -->
+    {% include "includes/headlinks.html" %}
+
+    <title>HealthNet - {{ hnuser.user.username }}</title>
+</head>
+
+<body id="profile-body">
+
+<!-- Include the global page header -->
+{% include "includes/header.html" %}
+
+<!-- Include the page sidebar -->
+{% include "includes/sidebar.html" %}
+
+<!-- This is where the unique content for each page goes -->
+<div class="content">
+
+  <!-- Patient Profile Content -->
+  <div class="container profile-content">
+    <h1>Admin</h1>
+  </div>
+  <!-- End Profile Content -->
+
+</div>
+<!-- End content -->
+
+<!-- General Document Script -->
+<script>
+document.getElementById('profile-body').style.overflow = "auto";
+</script>
+
+</body>
+
+</html>

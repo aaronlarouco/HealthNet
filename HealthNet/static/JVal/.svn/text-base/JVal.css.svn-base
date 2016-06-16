@@ -1,0 +1,20 @@
+/*
+
+JVal CSS
+==============================================================================
+Version: 0.1
+Author: Ryan Hochmuth
+Last Modified: 10/16/2015
+(c) 2015 Ryan Hochmuth under BSD license
+------------------------------------------------------------------------------
+A JavaScript module that adds nice visual effects to form validation.
+
+*/
+
+input.jval.interacted:not([type='submit']):invalid {
+  background: #fbc9c9 url(/static/images/invalid18x18.png) no-repeat 98% center;
+}
+
+input.jval.interacted:not([type='submit']):valid {
+  background: #d7fbd3 url(/static/images/valid18x18.png) no-repeat 98% center;
+}

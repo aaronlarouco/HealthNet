@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-12">
+    <label class="form-label" for="receiver">From:</label>
+      <p>{{ message.sender.get_name }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.subject.label_tag }}</div>
+    <div class="form-field">{{ form.subject }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.body.label_tag }}</div>
+    <div class="form-field">{{ form.body }}</div>
+  </div>
+</div>

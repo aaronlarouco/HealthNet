@@ -1,0 +1,110 @@
+<!-- Patient Info -->
+<div class="profile-pane" id="profile-info-pane">
+  <div class="info-bubble animate-from-bottom">
+    <!-- Patient Info Tabs -->
+    <div class="tabs">
+      <input class="tabs-input" id="tab1" type="radio" name="tabs" checked>
+      <label for="tab1">Patient Info</label>
+
+      <input class="tabs-input" id="tab2" type="radio" name="tabs">
+      <label for="tab2">Insurance Info</label>
+
+      <section id="basic-info-tab">
+        <div class="profile-edit-button jpop" id="basic-info-edit-button" popup="basic-info-edit">
+          <i class="fa fa-pencil"></i>
+          <p>Edit</p>
+        </div>
+        <div id="basic-info-content">
+          <h3>Phone Number</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-phone"></div>
+            <p class="profile-info"> {{ thiscontact.phoneNumber }} </p>
+          </div>
+          <h3>Date of Birth</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-calendar"></div>
+            <p class="profile-info">{{ hnuser.birthDate }} </p>
+          </div>
+          <h3>Height</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-arrow-up"></div>
+            <p class="profile-info">{{ hnuser.heightFeet }}', {{ hnuser.heightInches }}"</p>
+          </div>
+          <h3>Weight</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-balance-scale"></div>
+            <p class="profile-info">{{ hnuser.weight }} </p>
+          </div>
+          <h3>Address</h3>
+          <div class="profile-address-spacing rcorner-top-right rcorners-left-6">
+            <div class="address-field-icon fa fa-map-marker rcorner-top-left" style="color: #D22121;"></div>
+            <p class="profile-info">{{ thiscontact.street }}</p>
+          </div>
+          <div class="profile-address-spacing rcorners-left-6">
+            <div class="address-field-icon fa fa-map-marker"></div>
+            <p class="profile-info">{{ thiscontact.city }}, {{ thiscontact.state }}</p>
+          </div>
+          <div class="profile-address-spacing rcorner-bottom-right rcorners-left-6">
+            <div class="address-field-icon fa fa-globe rcorner-bottom-left" style="color: #D22121;"></div>
+            <p class="profile-info">{{ thiscontact.zipcode }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="medical-info-tab">
+        <div class="profile-edit-button jpop" id="medical-info-edit-button" popup="medical-info-edit">
+          <i class="fa fa-pencil"></i>
+          <p>Edit</p>
+        </div>
+        <div id="medical-info-content">
+          <h3>Preferred Hospital</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-plus"></div>
+            <p class="profile-info"> {{ hnuser.hospitalPref.name }} </p>
+          </div>
+          <h3>Insurance Company</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-hospital-o"></div>
+            <p class="profile-info"> {{ hnuser.insuranceCompany }} </p>
+          </div>
+          <h3>Insurance ID</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-info-circle"></div>
+            <p class="profile-info"> {{ hnuser.insuranceId }} </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End Patient Info Tabs -->
+  </div>
+</div>
+<!-- End Patient Info -->
+
+<!-- Basic Info JPop -->
+<div class="edit-form" id="basic-info-edit" width="50%" height="90%" style="display: none;"
+jpoptitle="Edit Personal Info" mtrigger="774">
+  <div class="edit-form-inner">
+    <form id="edit-basic-info-form" class="center" action="/profiles/ajax/editbasicinfo" method="post">
+      {% csrf_token %}
+      <div id="basic-form-content"></div>
+      <div class="edit-submit">
+        <input id="basic-info-submit" type="submit" value="Save" class="button-gradient-red submit-btn">
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End Basic Info JPop -->
+
+<!-- Medical Info JPop -->
+<div class="edit-form" id="medical-info-edit" width="50%" style="display: none;" jpoptitle="Edit Insurance Info">
+  <div class="edit-form-inner">
+    <form id="edit-medical-info-form" class="center" action="/profiles/{{hnuser.user.username}}/savemedicalinfo" method="post">
+      {% csrf_token %}
+      <div id="medical-form-content"></div>
+      <div class="edit-submit">
+        <input id="medical-info-submit" type="submit" value="Save" class="button-gradient-red submit-btn">
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End Medical Info JPop -->

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootsrap Files -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" />
+
+    <!-- Js-Cookie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.3/js.cookie.js"></script>
+
+    <!-- Custom HealthNet CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>Sidebar</title>
+  </head>
+
+  <body>
+      <div id="inline_container">
+          <div id="toggle_menu">
+              <div id="toggle">
+              </div>
+          </div>
+          <divid="main_container">main container</div>
+      </div>
+
+  <script>
+  var toggled = true;
+
+  $("#toggle_menu").click(function(){
+    if(toggled) {
+        toggled=false;
+    $(this).animate({width: "20px"}, "fast");
+    }else {
+        toggled=true;
+            $(this).animate({width: "200px"}, "fast");
+    }
+  });
+  </script>
+  </body>
+</html>

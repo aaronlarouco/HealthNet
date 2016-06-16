@@ -1,0 +1,145 @@
+<div class="profile-pane" id="profile-picture">
+  <div class="info-bubble animate-from-bottom">
+    <div id="profile-pic-area">
+      <div id="profile-pic-edit">
+        <a id="profile-pic-edit-id" class="jpop" popup="edit-ppic-popup" href="javascript:;">
+          <div id="profile-pic-edit-overlay">
+            <div id="profile-pic-edit-icon">
+              <i class="fa fa-camera"></i>
+              <p>Edit</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div id="profile-pic-pic-wrapper">
+        <img src="{{ hnuser.photo.url }}" id="profile-pic-pic">
+      </div>
+    </div>
+    <h1 class="text-center">{{ thiscontact.firstName }} {% if thiscontact.middleInitial %}{{ thiscontact.middleInitial }}.{% endif %} {{ thiscontact.lastName }}</h1>
+  </div>
+</div>
+
+<div id="edit-ppic-popup" jpoptitle="Upload Picture" style="display: none;">
+  <div class="edit-form" id="edit-form">
+      <div class="edit-form-inner">
+          <form id="ppic-form" action="/profiles/{{ hnuser.user.username }}/uploadpicture" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p id="profile-picture-error"></p>
+            <div id="profile-picture-upload-field" class="file-field">
+              <label class="file-upload-label">
+                {{ profilePicForm.image }}
+                <span id="profile-picture-label">Click to choose a file...</span>
+              </label>
+            </div>
+            <div class="edit-submit">
+              <input class="button-gradient-red" type="submit" value="Upload"/>
+            </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<!-- Profile Picture Upload Validation -->
+<script>
+window.addEventListener('load', setupImageUpload, false);
+$("#profile-pic-edit-id").click(function(e) {
+  setupImageUpload();
+});
+
+function setupImageUpload() {
+  document.getElementById("profile-picture-input").onchange = function () {
+    var label = document.getElementById("profile-picture-label");
+    var text = this.value;
+
+    var ext = text.match(/\.([^\.]+)$/)[1];
+    switch(ext)
+    {
+        case 'jpg':
+          validType(label, text);
+          break;
+        case 'gif':
+          validType(label, text);
+          break;
+        case 'bmp':
+          validType(label, text);
+          break;
+        case 'png':
+          validType(label, text);
+          break;
+        case 'tif':
+          validType(label, text);
+          break;
+        default:
+          invalidType(label, text);
+          break;
+    }
+  };
+}
+
+function invalidType(label) {
+  var error = document.getElementById('profile-picture-error');
+  error.innerHTML = "File type not allowed.\nOnly jpg, png, gif, bmp, and tif image files are allowed.";
+  error.classList.remove("fade-grow-out");
+  error.classList.add("fade-grow-in");
+  this.value = '';
+  $("#profile-picture-input").replaceWith($("#profile-picture-input").clone(true));
+  setupImageUpload();
+  label.innerHTML = "Click to choose a file...";
+}
+
+function validType(label, text) {
+  var error = document.getElementById('profile-picture-error');
+  error.classList.remove("fade-grow-in");
+  error.classList.add("fade-grow-out");
+  setTimeout(function() {
+    error.innerHTML = "";
+  }, 400);
+  var newtext = text.substring(text.lastIndexOf("\\") + 1, text.length);
+  label.innerHTML = newtext;
+}
+</script>
+<!-- End Profile Picture Upload Validation -->
+
+<!-- Profile Picture Hover Edit Script -->
+<script>
+document.getElementById('profile-pic-edit-overlay')
+.style.width = document.getElementById('profile-pic-pic').style.width;
+
+var profileLink = $('#profile-pic-edit-overlay')
+var profileButton = $('#profile-pic-edit-icon')
+profileLink.addClass('hide');
+document.getElementById('profile-pic-edit-icon').style.opacity = "0";
+
+// When the profile picture is hovered with the mouse
+$("#profile-pic-edit").hover(
+
+    // Function to call when mouse enters
+    function () {
+        profileLink.removeClass('hide');
+
+        profileLink.animate({
+            backgroundColor: "rgba(0, 0, 0, 0.60)"
+        }, 300, function () {
+
+        });
+
+        profileButton.fadeTo("normal", 1, function () {
+            document.getElementById('profile-pic-edit-icon').style.opacity = "1";
+        });
+    },
+
+    // Function to call when mouse exits
+    function () {
+        profileLink.animate({
+            backgroundColor: "rgba(0, 0, 0, 0.00)"
+        }, 300, function () {
+            profileLink.addClass('hide');
+        });
+
+        profileButton.fadeTo("normal", 0, function () {
+            document.getElementById('profile-pic-edit-icon').style.opacity = "0";
+        });
+    }
+);
+</script>
+<!-- End Profile Picture Hover Edit Script -->

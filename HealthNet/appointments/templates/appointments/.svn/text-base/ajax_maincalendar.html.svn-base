@@ -1,0 +1,119 @@
+<div id="calendar"></div>
+
+<script>
+var ar = {{json_ar|safe}};
+
+ var sy = ar[0];
+ var sm = ar[1];
+ var sd = ar[2];
+ var sh = ar[3];
+ var sn = ar[4];
+ var ey = ar[5];
+ var em = ar[6];
+ var ed = ar[7];
+ var eh = ar[8];
+ var en = ar[9];
+ var id = ar[10];
+ var title = ar[11];
+ var rsn = ar[12];
+
+ var hite = $(window).height()-160;
+ var dayHite = $(window).height()-238;
+
+ var eventArray = [];
+ for (var key in sy) {
+     var endhour = eh[key];
+     var endmin = en[key];
+     var starthour = sh[key];
+     var startmin = sn[key];
+     var event = {
+         id: id[key],
+         title: title[key],
+         description: rsn[key],
+         start: new Date(sy[key], sm[key] - 1, sd[key], starthour, startmin),
+         end: new Date(ey[key], em[key] - 1, ed[key], endhour, endmin)
+     };
+     eventArray.push(event);
+ }
+ $('#calendar').fullCalendar({
+     // put your options and callbacks here
+
+
+     theme: true,
+
+     header: {
+         left: 'title',
+         center: '',
+         right: 'month,agendaWeek today prev,next',
+         prev: 'circle-triangle-w',
+         next: 'circle-triangle-e'
+     },
+
+     events: eventArray,
+
+     eventRender: function (event, element) {
+         element.qtip({
+             content: event.description,
+             style: {
+                 classes: 'qtip-light qtip-shadow'
+             }
+         });
+     },
+
+     defaultView: 'month',
+
+     height: hite,
+
+
+     dayClick: function (date, allDay) {
+         $("#calendar2").fullCalendar('gotoDate', date); //Works big calendar goes to date in the view that is currently in.
+         var days = document.getElementsByClassName("fc-day");
+
+         var i;
+         for (i = 0; i < days.length; i++) {
+             days[i].style.background = "#ffffff url(\"images/ui-bg_flat_75_ffffff_40x100.png\") 50% 50% repeat-x";
+
+         }
+
+         // change the day's background color just for fun
+         $(this).css('background', '#FF9999 url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x');
+         // $(this).css('border-bottom-color', '#FF3030 url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x');
+         // $(this).css('border-top-color', '#FF3030 url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x');
+         // $(this).css('border-left-color', '#FF3030 url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x');
+         // $(this).css('border-right-color', '#FF3030 url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x');
+         // $(this).css('border-width', '1px');
+     },
+
+     eventClick: function (calEvent, jsEvent, view) {
+         // window.location.replace("/appointments/{{ username }}/" + calEvent.id);
+
+         $("#view-appointment-clicker").click();
+
+
+         var token = $('input[name=\"csrfmiddlewaretoken\"]');
+         $.ajax({
+             url: "/appointments/{{ hnuser.user.username }}/" + calEvent.id,
+             type: "POST",
+             data: {
+                 client_response: "",
+                 csrfmiddlewaretoken: token.val()
+             },
+             success: function (data) {
+               $('#view-appointment-content').html(data.html);
+               $('#view-appointment-content').append("<input id=\"appointmentpk\" type=\"hidden\" pk=\"" +
+               calEvent.id + "\" username=\"{{ hnuser.user.username }}\">");
+
+               setupEditAppointmentButton();
+               setupDeleteAppointmentButton();
+
+               var deleteBtn = document.getElementById('delete-appointment-button');
+               initSpecificJPop(deleteBtn);
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+
+             }
+         });
+     }
+
+ });
+</script>

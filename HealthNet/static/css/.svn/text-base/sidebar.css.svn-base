@@ -1,0 +1,698 @@
+/*
+========================================================== General Styles
+*/
+
+@media screen and (min-width: 1259px) {
+    #topbar-bars, #top-notify-btn, #top-notify-num {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1258px) {
+    #sidebar {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1067px) and (max-width: 1199px) {
+    #topbar-bars, #top-notify-btn, #top-notify-num {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1066px) {
+    #sidebar {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 850px) and (max-width: 991px) {
+    #topbar-bars, #top-notify-btn, #top-notify-num {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 849px) {
+    #sidebar {
+        display: none;
+    }
+}
+
+#sidebar {
+    position: fixed;
+    z-index: 10;
+    left: -230px;
+    top: 60px;
+    height: 100%;
+    width: 300px;
+
+    background-color: #f5f5f5;
+
+    -webkit-box-shadow: 0px 5px 18px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 18px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 5px 18px -5px rgba(0, 0, 0, 0.75);
+}
+
+#sidebar-header {
+    position: fixed;
+    left: -230px;
+    top: 60px;
+    height: 57px;
+    width: 300px;
+
+    background-color: #efefef;
+    border-bottom: 2px solid #B81D1D;
+}
+
+#sidebar-header:hover {
+    cursor: pointer;
+    cursor: hand;
+}
+
+#sidebar-header h2 {
+    color: #ffffff;
+    position: absolute;
+    left: 12px;
+}
+
+#sidebar-nav-panel {
+    width: 250px;
+    position: absolute;
+    top: 70px;
+    border: none !important;
+    z-index: 11;
+}
+
+#topbar-nav-panel {
+    width: 300px;
+    position: absolute;
+    top: 70px;
+    border: none !important;
+    z-index: 11;
+}
+
+/*
+========================================================== Sidebar Bars Styles
+*/
+
+#sidebar-bars {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+    padding: 12px;
+    width: 70px;
+    height: 58px;
+}
+
+#sidebar-bars:hover {
+    cursor: pointer;
+    cursor: hand;
+    color: #000000;
+}
+
+#bar1 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 20px;
+    left: 17px;
+    background-color: #000000;
+}
+
+#bar2 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 30px;
+    left: 17px;
+    background-color: #000000;
+}
+
+#bar3 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 40px;
+    left: 17px;
+    background-color: #000000;
+}
+
+/*
+============================================================ Sidebar Nav Styles
+*/
+
+.sidebar-active {
+    z-index: 2 !important;
+    color: #ffffff !important;
+    background-color: #D22121 !important;
+    border-color: #D22121 !important;
+}
+
+.sidebar-nav-item {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+
+/*
+======================================================== Sidebar Sidebar Styles
+*/
+
+#sidebar-nav-sidebar {
+    position: relative;
+    box-sizing: border-box;
+    top: 58px;
+    left: 230px;
+    width: 70px;
+    height: 100%;
+    background-color: #efefef;
+    border-left: 1px solid #dfdfdf;
+    z-index: 12;
+    padding-top: 1px;
+}
+
+.sidebar-sidebar-button {
+    width: 48px;
+    height: 48px;
+    margin: 10px auto 0 auto;
+    transform: translate(-1px);
+    text-align: center;
+    border-bottom: 2px solid #cbcbcb;
+    border-right: 1px solid #cbcbcb;
+
+    font-size: 24px;
+    color: #2f2f2f;
+    border-radius: 50%;
+    background-color: #dadada;
+
+    transition-property: background-color, color;
+    transition-duration: .4s, .2s;
+}
+
+.sidebar-sidebar-button:hover {
+    background-color: #D22121;
+    color: #ffffff;
+
+    transition-property: background-color, color;
+    transition-duration: .4s, .2s;
+}
+
+.sidebar-sidebar-button i {
+    transform: translate(1px, 5px);
+}
+
+.lower-icons .sidebar-sidebar-button i {
+    transform: translate(1px, 10px);
+}
+
+.sidebar-logout-button {
+
+}
+
+.sidebar-icon {
+    width: 70px;
+    height: 43px;
+    font-size: 24px;
+    text-align: center;
+    padding: 8px;
+    background-color: #d6d6d6;
+    color: #000000;
+    border-bottom: 1px solid #aaaaaa;
+
+    transition-property: background-color, color;
+    transition-duration: .4s, .4s;
+}
+
+.sidebar-icon:hover {
+    cursor: pointer;
+    cursor: hand;
+    background-color: #D22121;
+    color: #ffffff;
+
+    transition-property: background-color, color;
+    transition-duration: .4s, .4s;
+}
+
+#notify-btn {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    color: #2f2f2f;
+    font-size: 28px;
+    line-height: 28px;
+    padding: 15px;
+    text-align: center;
+    width: 70px;
+    height: 58px;
+
+    transition-property: color;
+    transition-duration: .2s;
+}
+
+#notify-btn:hover {
+    cursor: pointer;
+    cursor: hand;
+
+    transition-property: color;
+    transition-duration: .2s;
+}
+
+#notify-num {
+    position: absolute;
+    top: 13px;
+    right: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px;
+    padding-top: 5px;
+    line-height: 14px;
+    min-width: 22px;
+
+    border-radius: 50%;
+    color: #efefef;
+    background-color: #D22121;
+
+    transition-property: color;
+    transition-duration: .2s;
+}
+
+/*
+================================================================ Search Styles
+*/
+.search-button {
+    transform: translate(4px,4px);
+    width: 48px;
+    height: 48px;
+    font-size: 32px;
+    text-align: center;
+    background-color: #dadada;
+    display: inline-block;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: 2px solid #cacaca;
+}
+
+#search-input {
+    display: inline;
+    border: none;
+    border-bottom: 2px solid #c5c5c5;
+    border-right: 1px solid #c5c5c5;
+
+    width: 100%;
+    height: 48px;
+    padding: 5px;
+    padding-left: 15px;
+
+    background-color: #efefef;
+    font-size: 24px;
+    color: #000000;
+}
+
+#search-input-div {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#search-input:focus {
+    border-radius: 0;
+}
+
+#search-results {
+  overflow-y: auto;
+  max-height: 430px;
+}
+
+#search-results::-webkit-scrollbar {
+    width: 10px;
+    background: rgba(220, 220, 220, 0);
+}
+
+#search-results::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    -webkit-border-radius: 1ex;
+}
+
+#search-results::-webkit-scrollbar-corner {
+    background: rgba(220, 220, 220, 0);
+}
+
+ul#search-results-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+}
+
+ul#search-results-ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-result {
+  padding: 10px;
+  padding-left: 30px;
+  -webkit-box-shadow: 3px 3px 18px -5px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 3px 3px 18px -5px rgba(0, 0, 0, 0.9);
+  box-shadow: 3px 3px 18px -5px rgba(0, 0, 0, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  max-width: 60%;
+
+  transform: scale(1);
+
+  transition-property: transform;
+  transition-duration: .3s;
+}
+
+.search-result:hover {
+  background-color: rgba(230, 230, 230, 1);
+
+  transform: scale(1.05);
+
+  transition-property: transform;
+  transition-duration: .3s;
+}
+
+.search-result a {
+  cursor: hand;
+  cursor: pointer;
+}
+
+.search-result a:Hover {
+  text-decoration: none;
+}
+
+.search-result img {
+  border: 2px solid rgba(166, 166, 166, 1);
+  border-radius: 50%;
+  /*transform: translate(40%);*/
+}
+
+#search-result-photo {
+  box-sizing: border-box;
+  float: left;
+  max-width: 84px;
+  padding: 10px;
+}
+
+#search-result-name {
+  box-sizing: border-box;
+  float: left;
+  padding: 10px;
+}
+
+/*
+================================================================= Topbar Styles
+*/
+
+#topbar {
+    overflow: hidden;
+    position: fixed;
+    z-index: 10;
+    right: 0px;
+    top: 60px;
+    height: 0px;
+    width: 70px;
+
+    /*background-color: #f5f5f5;*/
+
+    -webkit-box-shadow: 0px 5px 18px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 18px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 5px 18px -5px rgba(0, 0, 0, 0.75);
+}
+
+#topbar-nav-sidebar {
+    position: relative;
+    box-sizing: border-box;
+    top: 0px;
+    right: 0px;
+    width: 70px;
+    height: 100%;
+    background-color: #efefef;
+    border-left: 1px solid #dfdfdf;
+    z-index: 12;
+    padding-top: 1px;
+}
+
+#topbar-header {
+    right: 0px;
+    top: 60px;
+    height: 70px;
+    width: 300px;
+
+    background-color: #A81E1E;
+}
+
+#topbar-header h2 {
+    color: #ffffff;
+    position: absolute;
+    left: 12px;
+}
+
+#topbar-bars {
+    position: fixed;
+    top: 0px;
+    right: 5px;
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+    padding: 10px;
+    width: 60px;
+    height: 70px;
+    z-index: 101;
+}
+
+#topbar-bars:hover {
+    cursor: pointer;
+    cursor: hand;
+    color: #D22121;
+}
+
+#topbar-bar1 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 20px;
+    left: 17px;
+    background-color: #000000;
+}
+
+#topbar-bar2 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 30px;
+    left: 17px;
+    background-color: #000000;
+}
+
+#topbar-bar3 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 40px;
+    left: 17px;
+    background-color: #000000;
+}
+
+#top-notify-btn {
+    position: fixed;
+    top: 0px;
+    right: 50px;
+    color: #2f2f2f;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    padding: 23px;
+    width: 70px;
+    height: 70px;
+    z-index: 101;
+    display: none;
+}
+
+#top-notify-num {
+    position: fixed;
+    top: 10px;
+    right: 35px;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    min-width: 25px;
+    z-index: 102;
+
+    border-radius: 50%;
+    color: #ffffff;
+    background-color: #D22121;
+}
+
+/*
+============================================================ Quick Links Styles
+*/
+
+#quick-links {
+
+}
+
+#quick-links-header {
+    position: fixed;
+    top: 3px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    z-index: 100;
+
+    /*border-bottom-right-radius: 5px;*/
+    border-radius: 5px;
+    /*background-color: #B81D1D;*/
+    background-color: rgba(255, 255, 255, 0);
+    /*-webkit-box-shadow: 0px 3px 18px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 3px 18px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 3px 18px -5px rgba(0, 0, 0, 0.75);*/
+}
+
+/*#sidebar-bars {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+    padding: 19px;
+    width: 70px;
+    height: 70px;
+}
+
+#sidebar-bars:hover {
+    cursor: pointer;
+    cursor: hand;
+    color: #000000;
+}*/
+
+#quick-links-header #quicklinks-bars {
+    top: 0px;
+    left: 0px;
+    right: auto;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+}
+
+#quick-links-header #quicklinks-bars:hover {
+    cursor: hand;
+    cursor: pointer;
+}
+
+#quick-links-header #bar1 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 13px;
+    left: 8px;
+    background-color: #000000;
+}
+
+#quick-links-header #bar2 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 23px;
+    left: 8px;
+    background-color: #000000;
+}
+
+#quick-links-header #bar3 {
+    position: absolute;
+    width: 32px;
+    height: 5px;
+    border-radius: 2px;
+    top: 33px;
+    left: 8px;
+    background-color: #000000;
+}
+
+#quick-links-wedge {
+    position: fixed;
+    top: 55px;
+    right: 25px;
+    z-index: 20;
+
+    color: #ffffff;
+    font-size: 24px;
+}
+
+#quick-links-bar {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    /*right: 14px;*/
+    height: 45px;
+    width: 100%;
+    z-index: 10;
+
+    background-color: #fcfcfc;
+    -webkit-box-shadow: 0px 3px 18px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 3px 18px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 3px 18px -5px rgba(0, 0, 0, 0.75);
+}
+
+#quick-links-bar .quick-link-button {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    /*padding: 10px;*/
+    border-radius: 5px;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 8px;
+
+    color: #000000;
+    background-color: #d5d5d5;
+    border-bottom: 2px solid #bfbfbf;
+    border-right: 1px solid #bfbfbf;
+
+    transition-property: background-color, color;
+    transition-duration: .4s, .4s;
+}
+
+#quick-links-bar .quick-link-button:hover {
+    background-color: #D22121;
+    color: #ffffff;
+
+    transition-property: background-color, color;
+    transition-duration: .4s, .4s;
+}
+
+#quick-links-bar .quick-link-button div {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    color: #000000;
+
+    transition-property: color;
+    transition-duration: .4s;
+}
+
+#quick-links-bar .quick-link-button:hover div {
+    color: #ffffff;
+
+    transition-property: color;
+    transition-duration: .4s;
+}

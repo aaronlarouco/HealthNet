@@ -1,0 +1,35 @@
+<div id="basic-info-content">
+  <h3>Phone Number</h3>
+  <div class="profile-info-spacing">
+    <div class="field-icon fa fa-phone"></div>
+    <p class="profile-info"> {{ thiscontact.phoneNumber }} </p>
+  </div>
+  <h3>Date of Birth</h3>
+  <div class="profile-info-spacing">
+    <div class="field-icon fa fa-calendar"></div>
+    <p class="profile-info">{{ hnuser.birthDate }} </p>
+  </div>
+  <h3>Height</h3>
+  <div class="profile-info-spacing">
+    <div class="field-icon fa fa-arrow-up"></div>
+    <p class="profile-info">{{ hnuser.heightFeet }}', {{ hnuser.heightInches }}"</p>
+  </div>
+  <h3>Weight</h3>
+  <div class="profile-info-spacing">
+    <div class="field-icon fa fa-balance-scale"></div>
+    <p class="profile-info">{{ hnuser.weight }} </p>
+  </div>
+  <h3>Address</h3>
+  <div class="profile-address-spacing rcorner-top-right rcorners-left-6">
+    <div class="address-field-icon fa fa-map-marker rcorner-top-left" style="color: #D22121;"></div>
+    <p class="profile-info">{{ thiscontact.street }}</p>
+  </div>
+  <div class="profile-address-spacing rcorners-left-6">
+    <div class="address-field-icon fa fa-map-marker"></div>
+    <p class="profile-info">{{ thiscontact.city }}, {{ thiscontact.state }}</p>
+  </div>
+  <div class="profile-address-spacing rcorner-bottom-right rcorners-left-6">
+    <div class="address-field-icon fa fa-globe rcorner-bottom-left" style="color: #D22121;"></div>
+    <p class="profile-info">{{ thiscontact.zipcode }}</p>
+  </div>
+</div>

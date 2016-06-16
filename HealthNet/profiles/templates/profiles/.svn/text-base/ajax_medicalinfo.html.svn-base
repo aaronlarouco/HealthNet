@@ -1,0 +1,17 @@
+<div id="medical-info-content">
+  <h3>Preferred Hospital</h3>
+  <div class="profile-info-spacing">
+    <div class="field-icon fa fa-plus"></div>
+    <p class="profile-info"> {{ hnuser.hospitalPref.name }} </p>
+  </div>
+  <h3>Insurance Company</h3>
+  <div class="profile-info-spacing">
+    <div class="field-icon fa fa-hospital-o"></div>
+    <p class="profile-info"> {{ hnuser.insuranceCompany }} </p>
+  </div>
+  <h3>Insurance ID</h3>
+  <div class="profile-info-spacing">
+    <div class="field-icon fa fa-info-circle"></div>
+    <p class="profile-info"> {{ hnuser.insuranceId }} </p>
+  </div>
+</div>

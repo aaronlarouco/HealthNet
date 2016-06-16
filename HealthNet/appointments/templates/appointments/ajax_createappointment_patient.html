@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.title.label_tag }}</div>
+    <div class="form-field">{{ form.title }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <label class="form-label" for="startDate">Date</label>
+    <div class="z5008">
+      <input class="form-field" type="text" id="datepicker" name="startDate" placeholder="ex. 2015-12-31" class="jval">
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div style="width: 220px; margin: 0 auto 0 auto;">
+    <label class="form-label" for="startTime">Start Time</label>
+    <input class="form-field" type="hidden" id="start-time-input" name="startTime" class="skipjval">
+    <div style="width: 220px; margin: 0 auto 20px auto; height: 40px;">
+      <div id="start-time" class="swag-tp stp-height-40" inputId="start-time-input" style="z-index: 8;">
+        <div class="swag-tp-header">
+          <div class="swag-tp-time">
+            <h2 class="swag-tp-h swag-tp-active">12</h2><h2 class="swag-tp-active">:</h2><h2 class="swag-tp-m swag-tp-ampm-active">00</h2>
+            <div class="swag-tp-ampm"><h3 class="swag-tp-am">am</h3><h3 class="swag-tp-pm swag-tp-ampm-active">pm</h3></div>
+          </div>
+        </div>
+        <div class="swag-tp-content stp-content-hidden">
+          <div class="swag-tp-clock">
+            <div class="swag-tp-clock-hours">
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-360">12</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-30">1</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-60">2</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-90">3</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-120">4</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-150">5</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-180">6</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-210">7</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-240">8</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-270">9</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-300">10</div></div>
+              <div class="swag-tp-hour-wrapper"><div class="swag-tp-hour swag-tp-330">11</div></div>
+              <div class="swag-tp-hour-wrapper"><i class="swag-tp-dot fa fa-circle"></i></div>
+            </div>
+            <div class="swag-tp-clock-minutes">
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-360">00</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-30">05</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-60">10</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-90">15</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-120">20</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-150">25</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-180">30</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-210">35</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-240">40</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-270">45</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-300">50</div></div>
+              <div class="swag-tp-minute-wrapper"><div class="swag-tp-minute swag-tp-330">55</div></div>
+              <div class="swag-tp-minute-wrapper"><i class="swag-tp-dot fa fa-circle"></i></div>
+            </div>
+          </div>
+          <div class="swag-tp-controls">
+            <div class="swag-tp-ok">Ok</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-label">{{ form.doctor.label_tag }}</div>
+    <select name="doctor" required>
+      {% for doctor in doctors %}
+      <option value="{{ doctor.user.pk }}">Dr. {{ doctor.firstName }} {{ doctor.lastName }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-label">{{ form.hospital.label_tag }}</div>
+    <select name="hospital" required>
+      {% for hospital in hospitals %}
+      {% if hospital.pk == hnuser.hospitalPref.pk %}
+      <option selected value="{{ hospital.pk }}">{{ hospital.name }}</option>
+      {% else %}
+      <option value="{{ hospital.pk }}">{{ hospital.name }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.room.label_tag }}</div>
+    <div class="form-field">{{ form.room }}</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label">{{ form.reason.label_tag }}</div>
+    <div class="form-field">{{ form.reason }}</div>
+  </div>
+</div>
+
+<script>
+$(function () {
+  $("#datepicker").datepicker({
+      yearRange: "1910:2016",
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy-mm-dd"
+  });
+});
+</script>

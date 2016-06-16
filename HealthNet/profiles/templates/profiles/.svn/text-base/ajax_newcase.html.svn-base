@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-label" style="display: inline;">
+      <label>Case ID</label>
+    </div>
+    <div class="form-field">
+      <input name="caseId" class="jval" type="text" required>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-label" style="display: inline;">
+      <label>Title</label>
+    </div>
+    <div class="form-field">
+      <input name="title" class="jval" type="text" required>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label" style="display: inline;">
+      <label>Illness</label>
+    </div>
+    <div class="form-field">
+      <select name="illness">
+        {% for illness in illnesses %}
+        <option value="{{ illness.pk }}">{{ illness.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-label" style="display: inline;">
+      <label>Notes</label>
+    </div>
+    <div class="form-field">
+      <textarea name="notes"></textarea>
+    </div>
+  </div>
+</div>

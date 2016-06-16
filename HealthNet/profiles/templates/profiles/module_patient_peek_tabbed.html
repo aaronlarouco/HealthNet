@@ -1,0 +1,352 @@
+<!-- Patient Info -->
+<div class="profile-pane" id="profile-info-pane">
+  <div class="info-bubble animate-from-bottom">
+    <!-- Patient Info Tabs -->
+    <div class="tabs">
+      <input class="tabs-input" id="tab1" type="radio" name="tabs" checked>
+      <label for="tab1">Patient Info</label>
+
+      <input class="tabs-input" id="tab2" type="radio" name="tabs">
+      <label for="tab2">Insurance Info</label>
+
+      <input class="tabs-input" id="tab3" type="radio" name="tabs">
+      <label for="tab3">Medical Cases</label>
+
+      <input class="tabs-input" id="tab5" type="radio" name="tabs">
+      <label for="tab5">Prescriptions</label>
+
+      <input class="tabs-input" id="tab4" type="radio" name="tabs">
+      <label for="tab4">Contacts</label>
+
+      <section id="basic-info-tab">
+        <div class="profile-edit-button jpop" id="basic-info-edit-button" popup="basic-info-edit">
+          <i class="fa fa-pencil"></i>
+          <p>Edit</p>
+        </div>
+        <div id="basic-info-content">
+          <h3>Phone Number</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-phone"></div>
+            <p class="profile-info"> {{ thiscontact.phoneNumber }} </p>
+          </div>
+          <h3>Date of Birth</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-calendar"></div>
+            <p class="profile-info">{{ hnuser.birthDate }} </p>
+          </div>
+          <h3>Height</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-arrow-up"></div>
+            <p class="profile-info">{{ hnuser.heightFeet }}', {{ hnuser.heightInches }}"</p>
+          </div>
+          <h3>Weight</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-balance-scale"></div>
+            <p class="profile-info">{{ hnuser.weight }} </p>
+          </div>
+          <h3>Address</h3>
+          <div class="profile-address-spacing rcorner-top-right rcorners-left-6">
+            <div class="address-field-icon fa fa-map-marker rcorner-top-left" style="color: #D22121;"></div>
+            <p class="profile-info">{{ thiscontact.street }}</p>
+          </div>
+          <div class="profile-address-spacing rcorners-left-6">
+            <div class="address-field-icon fa fa-map-marker"></div>
+            <p class="profile-info">{{ thiscontact.city }}, {{ thiscontact.state }}</p>
+          </div>
+          <div class="profile-address-spacing rcorner-bottom-right rcorners-left-6">
+            <div class="address-field-icon fa fa-globe rcorner-bottom-left" style="color: #D22121;"></div>
+            <p class="profile-info">{{ thiscontact.zipcode }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="medical-info-tab">
+        <div class="profile-edit-button jpop" id="medical-info-edit-button" popup="medical-info-edit">
+          <i class="fa fa-pencil"></i>
+          <p>Edit</p>
+        </div>
+        <div id="medical-info-content">
+          <h3>Preferred Hospital</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-plus"></div>
+            <p class="profile-info"> {{ hnuser.hospitalPref.name }} </p>
+          </div>
+          <h3>Insurance Company</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-hospital-o"></div>
+            <p class="profile-info"> {{ hnuser.insuranceCompany }} </p>
+          </div>
+          <h3>Insurance ID</h3>
+          <div class="profile-info-spacing">
+            <div class="field-icon fa fa-info-circle"></div>
+            <p class="profile-info"> {{ hnuser.insuranceId }} </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="peek-medical-info-tab">
+        <div id="peek-medical-info-content">
+          <p id="new-case-button" class="jpop" popup="new-case-popup"><i class="fa fa-plus"></i>New Case</p>
+          <div id="patient-cases">
+            <ul>
+              {% for case in cases %}
+              <li class="case-li">
+                <label for="case-{{case.pk}}-checkbox">
+                  <p class="fa fa-angle-down" style="margin-right: 10px; font-size: 20px;"></p>
+                  <p>{{case.caseId}}</p> - <p>{{case.title}}</p>
+                </label>
+                <input type="checkbox" id="case-{{case.pk}}-checkbox">
+                <div class="case-body">
+                  {% if case.ongoing %}<p class="case-ongoing">Ongoing</p>{% else %}<p class="case-closed">Closed</p>{% endif %}
+                  <p><span>Date Created:</span> {{case.date}}</p>
+                  <p><span>Illness:</span> {{case.illness.name}}</p>
+                  <p><span>Notes:</span></p>
+                  <form id="case-notes-form-{{case.pk}}">
+                  <textarea pk="{{case.pk}}" class="case-notes" name="notes" id="notes-{{case.pk}}" style="width: 100%;">{{case.notes}}</textarea>
+                  </form>
+                  <p id="save-notes-button-{{case.pk}}" class="save-notes-button save-notes-disabled" pk="{{case.pk}}">Save Notes</p>
+                  <p><span>Associated Prescriptions:</span></p>
+                  <div class="case-prescriptions">
+                    <ul>
+                    {% if case.prescriptions.all %}
+                    {% for p in case.prescriptions.all %}
+                      <li>
+                        <p><span style="margin-right: 10px;">Drug:</span>{{p.drug.name}}</p>
+                        <p><span style="margin-right: 10px;">Refills:</span>{{p.refills}}</p>
+                        <p><span style="margin-right: 10px;">Dosage:</span>{{p.dose}}</p>
+                        <p><span style="margin-right: 10px;">Date:</span>{{p.startDate}}</p>
+                      </li>
+                    {% endfor %}
+                    {% else %}
+                    None
+                    {% endif %}
+                    </ul>
+                  </div>
+                  <p><span>Associated Files:</span></p>
+                  <div class="case-files">
+                    <ul>
+                      {% if case.files.all %}
+                      {% for file in case.files.all %}
+                      <a href="/profiles/patient-files/{{file.pk}}"><li>{{file.name}}</li></a>
+                      {% endfor %}
+                      {% else %}
+                      None
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div style="height: 20px;"></div>
+          <form id="patient-file-upload-form" action="/profiles/{{ hnuser.user.username }}/fileupload" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="patient-file-upload-field" class="file-field">
+              <label class="file-upload-label">
+                <input id="patient-file-input" name="file" required="true" type="file" required>
+                <span id="patient-file-label">Click to choose a file...</span>
+              </label>
+              <input id="patient-file-name" type="hidden" name="filename" value="" />
+            </div>
+            <div class="edit-submit">
+              <input id="patient-file-submit" class="button-gradient-red" type="submit" value="Upload"/>
+            </div>
+          </form>
+
+          <div id="patient-files">
+            <ul>
+              {% for file in files %}
+              <a href="/profiles/patient-files/{{file.pk}}"><li>{{file.name}}</li></a>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="peek-prescriptions-tab">
+        <div id="peek-prescriptions-content">
+          <div id="patient-prescriptions">
+            <ul>
+              {% for p in prescriptions %}
+              <li>
+                <p><span style="margin-right: 10px;">Drug:</span>{{p.drug.name}}</p>
+                <p><span style="margin-right: 10px;">Refills:</span>{{p.refills}}</p>
+                <p><span style="margin-right: 10px;">Dosage:</span>{{p.dose}}</p>
+                <p><span style="margin-right: 10px;">Date:</span>{{p.startDate}}</p>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="peek-contacts-tab">
+        <div id="peek-contacts-content">
+          <div class="" id="contacts-content" style="padding-top: 10px;">
+            <div style="height: 20%;"></div>
+
+            <!-- Contacts Content -->
+            <div class="">
+                <div id="contacts-content-inner">
+                    <div id="contact-list" class="contact-list">
+                        <ul>
+                            <li class="view-contact-header">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            First Name
+                                        </div>
+                                        <div class="col-sm-1">
+                                            M.I.
+                                        </div>
+                                        <div class="col-sm-3">
+                                            Last Name
+                                        </div>
+                                        <div class="col-sm-3">
+                                            Phone #
+                                        </div>
+                                        <div class="col-sm-2">
+                                            Relation
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="view-contact-header">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="view-contact-header">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <br>
+                            {% if contacts %}
+                                {% for contact in contacts %}
+
+                                    <li class="view-contact-item">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-sm-2 contact-list-field">
+                                                        {{ contact.firstName }}
+                                                    </div>
+                                                    <div class="col-sm-1 contact-list-field">
+                                                        {{ contact.middleInitial }}
+                                                    </div>
+                                                    <div class="col-sm-3 contact-list-field">
+                                                        {{ contact.lastName }}
+                                                    </div>
+                                                    <div class="col-sm-3 contact-list-field">
+                                                        {{ contact.phoneNumber }}
+                                                    </div>
+                                                    <div class="col-sm-2 contact-list-field">
+                                                        {{ contact.get_relation_display }}
+                                                    </div>
+                                                </div>
+                                                <div class="sep-solid-grey" style=""></div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 contact-list-field">
+                                                        {{ contact.street }} {{ contact.city }}, {{ contact.state }}, {{ contact.zipcode }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="contact-delete-info" username="" contactid=""></div>
+                                        </div>
+                                    </li>
+
+                                {% endfor %}
+                            {% else %}
+                                <li class="view-contact-item">
+                                    <div class="row">
+                                        <div class="col-sm-12 contact-list-field">
+                                            You have no contacts
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+          <!-- End content -->
+        </div>
+      </section>
+    </div>
+    <!-- End Patient Info Tabs -->
+  </div>
+</div>
+<!-- End Patient Info -->
+
+<!-- Basic Info JPop -->
+<div class="edit-form" id="basic-info-edit" width="50%" height="90%" style="display: none;"
+jpoptitle="Edit Personal Info" mtrigger="774">
+  <div class="edit-form-inner">
+    <form id="edit-basic-info-form" class="center" action="/profiles/ajax/editbasicinfo" method="post">
+      {% csrf_token %}
+      <div id="basic-form-content"></div>
+      <div class="edit-submit">
+        <input id="basic-info-submit" type="submit" value="Save" class="button-gradient-red submit-btn">
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End Basic Info JPop -->
+
+<!-- Medical Info JPop -->
+<div class="edit-form" id="medical-info-edit" width="50%" style="display: none;" jpoptitle="Edit Insurance Info">
+  <div class="edit-form-inner">
+    <form id="edit-medical-info-form" class="center" action="/profiles/ajax/editmedicalinfo" method="post">
+      {% csrf_token %}
+      <div id="medical-form-content"></div>
+      <div class="edit-submit">
+        <input id="medical-info-submit" type="submit" value="Save" class="button-gradient-red submit-btn">
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End Medical Info JPop -->
+
+<!-- New Case JPop -->
+<div class="edit-form" id="new-case-popup" width="50%" style="display: none;" jpoptitle="New Case">
+  <div class="edit-form-inner">
+    <form id="new-case-form" class="center" action="" method="post">
+      {% csrf_token %}
+      <div id="new-case-content"></div>
+      <div class="edit-submit">
+        <input id="new-case-submit" type="submit" value="Create" class="button-gradient-red submit-btn">
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End New Case JPop -->

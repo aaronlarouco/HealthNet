@@ -1,0 +1,36 @@
+<div class="col-sm-4" style="overflow-x: hidden" pk="{{ message.pk }}">
+    {% if message.was_read %}
+        <div id="message-display-name" pk="{{ message.pk }}">
+            <p class="sender-type-read" pk="{{ message.pk }}">{{ message.sender.get_accountType_display }}:</p>
+        </div>
+        <div id="message-display-name" pk="{{ message.pk }}">
+            <p class="sender-name-read" pk="{{ message.pk }}">{{ message.sender.get_name }}</p>
+        </div>
+    {% else %}
+        <div id="message-display-name" pk="{{ message.pk }}">
+            <p class="sender-type-unread" pk="{{ message.pk }}">{{ message.sender.get_accountType_display }}:</p>
+        </div>
+        <div id="message-display-name" pk="{{ message.pk }}">
+            <p class="sender-name-unread" pk="{{ message.pk }}">{{ message.sender.get_name }}</p>
+        </div>
+    {% endif %}
+</div>
+<div class="col-sm-3" style="overflow-x: hidden" pk="{{ message.pk }}">
+    <div id="message-display-subject" pk="{{ message.pk }}">
+        {% if message.was_read %}
+            <p class="sender-name-read" pk="{{ message.pk }}">{{ message.subject }}</p>
+        {% else %}
+            <p class="sender-name-unread" pk="{{ message.pk }}">{{ message.subject }}</p>
+        {% endif %}
+    </div>
+</div>
+<div class="col-sm-2" style="overflow-x: hidden" pk="{{ message.pk }}">
+    <div id="message-display-preview" pk="{{ message.pk }}">
+        <p class="message-body" style="overflow-x: hidden" pk="{{ message.pk }}">{{ message.preview }}</p>
+    </div>
+</div>
+<div class="col-sm-3" style="overflow-clip:hidden" pk="{{ message.pk }}">
+    <div id="message-display-date" pk="{{ message.pk }}">
+        <p class="sender-type-read" pk="{{ message.pk }}">{{ message.send_date_time.month }}.{{ message.send_date_time.day }}  {{ message.send_date_time.time }}</p>
+    </div>
+</div>
